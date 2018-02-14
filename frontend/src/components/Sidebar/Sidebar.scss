@@ -1,0 +1,91 @@
+@import 'utils';
+
+.sidebar{
+      width: $sidebar-width;
+      display: flex;
+      flex-direction: column;
+      background: #222629 url("static/images/overlay.png");
+      box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.1);
+      color: white;
+      transition: all .5s ease-in-out;
+      position: fixed;
+      top:0;
+      left:0;
+      z-index: z-index-for('sidebar');
+      overflow: hidden;
+      height: 100vh;
+      &.hide{
+         transform: translateX(-$sidebar-width);
+      }
+      .top{
+            @include material-shadow(1);
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding: $siderbar-top-padding;
+            .avatar{
+                 flex : 1;
+                 border-radius: 5px;
+                 width: $sidebar-avatar-img-size;
+                 height: auto;
+                 border-radius: 5px;
+            }
+            .profile{
+                  flex:3;
+                  display: flex;
+                  flex-direction: column;
+                  text-align: right;
+                  padding-right: 1rem;
+                  .name {
+                        font-weight: 900;
+                        font-size: $sidebar-avatar-name-size;
+                  }
+            }
+      }
+      nav{
+            flex: 8;
+            @include material-shadow(1);
+            .row{
+                  padding: 1.2rem;
+                  display: flex;
+                  align-items: center;
+                  text-decoration: none;
+                  font-size: 1.0rem;
+                  color: #818181;
+                  .icon{
+                        margin-left: 0.8rem;
+                        font-size: $sidebar-menu-icon-size;            
+                  }
+                  .menu{
+                        flex:1;
+                        font-size: $sidebar-menu-title-size;
+                        padding-right: $sidebar-right-padding;
+                        text-align: right;
+                  }
+
+                  &.active{
+                        font-weight: 600;
+                        color: $oc-gray-3;
+                        background: $oc-cyan-8;
+                   
+                        .icon{
+                            color: $oc-gray-2;
+                        }
+                  }
+                  &:hover{
+                        color : $oc-gray-2;
+                        border-right: 4px solid $oc-cyan-9;
+                  }
+            }
+      }
+      .bottom{
+            flex: 1;
+            font-size: $sidebar-menu-icon-size;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a + a {
+                  margin: 2rem;
+            }
+      }
+}

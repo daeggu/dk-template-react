@@ -1,0 +1,62 @@
+@import 'utils';
+.app{
+      display: flex;
+      flex-direction: row;
+      background: $oc-gray-2;
+      overflow-x: hidden;
+      overflow-y: auto;
+      word-wrap: break-word;
+      main{
+            height: 100vh;
+            transition: all .5s ease-in-out;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .button{ 
+                  z-index: z-index-for('floatng-button');
+                  position: fixed;
+                  margin-top: 1rem;
+                  margin-left: 1rem;
+                  cursor: pointer;
+                  background:$oc-gray-7;
+                  @include material-shadow(3);
+                  height: $float-button-height;
+                  width: $float-button-width;
+                  border-radius: 5px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  opacity: 0.5;
+                  .icon{
+                        font-size: $float-button-icon-size;
+                        color: $oc-gray-0;
+                  }
+                  &:hover{
+                     background:$oc-gray-8;
+                     opacity: 1;
+                  }
+                  &:active{
+                     background:$oc-gray-6;
+                  }
+            }
+            .cover{
+                  overflow-x: hidden;
+                  overflow-y: auto;
+                  word-wrap: break-word;
+                  width: 100%;
+                  .center{
+                  }
+            }
+            .footer{
+                  height: 3rem;
+                  position: fixed;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  text-align: center;
+            }
+      }
+      li + li {
+            padding-top: 0.5rem;
+      }
+}

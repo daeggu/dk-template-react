@@ -1,0 +1,50 @@
+@import 'utils';
+.button-wrapper{
+      margin: 1rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .button{
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30%;
+            height: 4rem;
+            color: white;
+            @include material-shadow(3);
+            background:$oc-cyan-9;
+            &:hover{
+                  background:$oc-cyan-8;
+            }
+            &:active{
+                 background:$oc-cyan-9;
+            }
+      }
+}
+.input-wrapper{
+      margin-top: 1rem;
+      display: flex;
+      input{
+            flex:1;
+            height: 3rem;
+            font-size: 1rem;
+            padding: 1rem;
+            width: 100%;
+      }
+      input + input {
+            margin-left: 1.5rem;
+      }
+}
+textarea{
+      margin-top: 1rem;
+      width: 100%;
+      height: 17rem;
+      font-size: 1rem;
+      resize: none; 
+}

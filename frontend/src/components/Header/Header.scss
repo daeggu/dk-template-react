@@ -1,0 +1,28 @@
+@import 'utils';
+.header {
+      .image{
+            position: relative;
+            height: 15rem;
+            width: auto;
+            top: 0;
+            left:0;
+            right: 0;
+            @include material-shadow(1);
+            opacity: 0.9;
+            background: url('static/images/banner.png');
+            .text{
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100%;
+                  color : white;
+                  font-weight: 900;
+                  font-size: 2.5rem;
+                  user-select: none;
+            }
+            b{
+                  font-weight: 900;
+                  color: $oc-cyan-9;
+            }
+      }
+}

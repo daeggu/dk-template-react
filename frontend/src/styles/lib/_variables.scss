@@ -1,0 +1,39 @@
+$breakpoints: (
+      // Galaxy S3~S8(360px), GalayTab S(800px)
+      // iPhone 6~8 (375px, 414px)
+      // PC (1280px, 1440px, 1600px, 1920px)
+      small        :  360px, 
+      mobile       :  736px,
+      narrowest    :  960px,
+      narrower     : 1200px,
+      narrow       : 1320px,
+      medium       : 1500px,
+      normal       : 1620px,
+      wide         : 1880px,
+      dwide        : 2000px,
+);
+
+$z-indexes : (
+      'sidebar':                               15,
+      'floatng-button':                        10,
+);
+
+//Basic Font Size
+$wide-font-size:                            17px;
+$normal-font-size:                          15px;
+
+//Floating Button
+$float-button-width:                        3rem;
+$float-button-height:                     2.5rem;
+$float-button-icon-size:                  1.5rem;
+$float-button-margin-top:                   1rem;
+$float-button-margin-left:                 20rem; //($sidebar-width + 1)
+
+//Sidebar
+$sidebar-width:                            19rem;
+$siderbar-top-padding:                    1.5rem;
+$sidebar-right-padding:                   1.2rem;
+$sidebar-avatar-img-size:                 4.2rem;
+$sidebar-avatar-name-size:                1.8rem;
+$sidebar-menu-icon-size:                  1.7rem;
+$sidebar-menu-title-size:                 1.2rem;

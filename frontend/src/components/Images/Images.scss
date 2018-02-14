@@ -1,0 +1,12 @@
+@import 'utils';
+.image-wrapper{
+      img{
+            width: 100%;
+            height: auto;
+            &.outline{
+                  @include material-shadow(2,1);
+                  border-radius: 10px;
+            }
+      }
+}
+

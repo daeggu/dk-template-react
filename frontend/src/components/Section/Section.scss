@@ -1,0 +1,71 @@
+@import 'utils';
+
+.section{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background: $oc-gray-1;
+      border: 10px;
+      padding-bottom: 1rem;
+      b{
+            font-weight: 900;
+            color: $oc-cyan-9;
+      }
+      @include media(">dwide"){
+            padding-left: 30rem;
+            padding-right: 30rem;
+      }
+      @include media("<=dwide"){
+            padding-left: 30rem;
+            padding-right: 30rem;
+      }
+      @include media("<=wide"){
+            padding-left: 23rem;
+            padding-right: 23rem;
+       }
+       @include media("<=normal"){
+            padding-left: 22rem;
+            padding-right: 22rem;
+       }
+
+       @include media("<=medium"){
+            padding-left: 16rem;
+            padding-right: 16rem;
+       }
+       @include media("<=narrow"){
+            padding-left: 10rem;
+            padding-right: 10rem;
+       }
+       @include media("<=narrower"){
+            padding-left: 8rem;
+            padding-right: 8rem;
+      }
+      @include media("<=narrowest"){
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+      }
+      @include media("<=mobile") {
+           padding-left: 0.2rem;
+           padding-right: 0.2rem;
+      }
+      .paper{
+            background: white;
+            border-radius: 5px;
+            padding: 1rem;
+            @include material-shadow(3);
+            width: 100%;
+            
+            .title{
+                  font-size: 1.7rem;
+                  padding: 5px;
+                  font-weight: 900;
+                  border-left: 7px solid $oc-cyan-8;
+            }
+            .content{
+                  font-size: 1.2rem;
+                  font-weight: 400;
+                  line-height: 2rem;
+            }
+
+      }
+}
