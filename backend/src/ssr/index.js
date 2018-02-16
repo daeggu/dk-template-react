@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const render = require('./build/render').default;
+const render = require('./render').default;
 var serialize = require('serialize-javascript')
 
 const template = fs.readFileSync(path.join(__dirname,
-                '../../build/index.html'), { encoding: 'utf8'});
+                '../../../frontend/build/index.html'), { encoding: 'utf8'});
 
 module.exports = async (ctx) => {
     const location = ctx.path;

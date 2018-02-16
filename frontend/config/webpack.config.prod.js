@@ -56,15 +56,19 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
+  //서버사이드 렌더링
   entry: {
-      vendor: [
-        require.resolve('./polyfills'),
-        'react',
-        'react-dom',
-        'react-router-dom'
-      ],
-      app: paths.appIndexJs
+    app : paths.appIndexJs,
+    vendor: [
+      require.resolve('./polyfills'),
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'redux',
+      'axios',
+    ]
   },
+    
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -191,8 +195,6 @@ module.exports = {
                         importLoaders: 1,
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
-                        modules: true,
-                        localIdentName: '[path][name]__[local]--[hash:base64:5]'
                       },
                     },
                     {
@@ -240,8 +242,8 @@ module.exports = {
                         importLoaders: 1,
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
-                        modules: true,
-                        localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                        localIdentName: '[name]__[local]___[hash:base64:5]',
+                        modules: 1,
                       },
                     },
                     {
@@ -267,7 +269,7 @@ module.exports = {
                     {
                       loader: require.resolve('sass-loader'),
                       options: {
-                        includePaths:[paths.styles]
+                        includePaths: [paths.globalStyles]
                       }
                     }
                   ],
@@ -299,15 +301,14 @@ module.exports = {
     ],
   },
   plugins: [
-    //‘pages’ => ‘pages/index.async.js’ 로 치환
+    //서버사이드 렌더링
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+    }),
     new webpack.NormalModuleReplacementPlugin(
       /^pages$/,
       'pages/index.async.js'
     ),
-    //파일 나누기
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-    }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -360,6 +361,13 @@ module.exports = {
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
       filename: cssFilename,
+      //CSS Module과 Sass를 결합하여 사용하였는데, CSS Module을 사용할 경우에,
+      //CSS파일은 각 청크에 모두 포함되어 들어간다. CSS관련 코드가 JS내부에 들어가게된다.
+      //SCSS를 검색해봐
+      //서버사이드 랜더링할경우에는 JS실행전에 HTML을 미리 받아보게 되는데
+      //CSS가 JS안에 내장되어있으면 JS가 다 불러와질 때까지 스타일링이 되지 않은 HTML이 렌더링 된다.
+      //... CSS코드스플리팅을 방지하기 위해서 아래 옵션 필요
+      allChunks: true
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without

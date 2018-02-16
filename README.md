@@ -43,8 +43,8 @@ backend> yarn
 ```
  2. build files
  ```sh
-frontend> yarn build        - copy to backend/build/
-frontend> yarn build:server - copy to backend/src/render/build/
+frontend> yarn build
+frontend> yarn build:server - copy to backend/src/ssr/render.js
 ```
  3. start server
  ```sh
@@ -52,5 +52,5 @@ backend> yarn start
 ```
 4. check it out
 ```sh
-http://localhost:3001/
+http://localhost:4000/
 ```

@@ -2,10 +2,7 @@
 
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
-
-/* 나중에 클라이언트쪽 코드에서 process.env.APP_ENV 값을 통하여 
-서버일때만, 혹은 브라우저일때만 특정한 작업을 하도록 설정 할 수 있습니다. */
-process.env.APP_ENV = 'server'; 
+process.env.APP_ENV = 'server'; // 서버 환경임을 명시
 
 process.on('unhandledRejection', err => {
   throw err;
@@ -13,19 +10,20 @@ process.on('unhandledRejection', err => {
 
 require('../config/env');
 
+const chalk = require('chalk');
 const webpack = require('webpack');
-const config = require('../config/webpack.config.server'); // 서버용 환경설정을 지정
+const config = require('../config/webpack.config.server'); // 환경설정 파일 변경
 const paths = require('../config/paths');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 
-if (!checkRequiredFiles([paths.serverRenderJs])) {
+//ssrJS파일추가
+if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs, paths.ssrJs])) {
   process.exit(1);
 }
 
-function build() {
-  console.log('Creating an server production build...');
-
+function build() { // 파라미터 제거
+  console.log('Creating server build...'); // 메시지 변경
   let compiler = webpack(config);
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
@@ -34,14 +32,34 @@ function build() {
       }
       const messages = formatWebpackMessages(stats.toJson({}, true));
       if (messages.errors.length) {
+        // Only keep the first error. Others are often indicative
+        // of the same problem, but confuse the reader with noise.
+        if (messages.errors.length > 1) {
+          messages.errors.length = 1;
+        }
         return reject(new Error(messages.errors.join('\n\n')));
+      }
+      if (
+        process.env.CI &&
+        (typeof process.env.CI !== 'string' ||
+          process.env.CI.toLowerCase() !== 'false') &&
+        messages.warnings.length
+      ) {
+        console.log(
+          chalk.yellow(
+            '\nTreating warnings as errors because process.env.CI = true.\n' +
+              'Most CI servers set it automatically.\n'
+          )
+        );
+        return reject(new Error(messages.warnings.join('\n\n')));
       }
       return resolve({
         stats,
+   //     previousFileSizes,
         warnings: messages.warnings,
       });
     });
   });
 }
 
-build();
+build(); // build 호출
