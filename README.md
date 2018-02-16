@@ -15,7 +15,6 @@ If you want to try all of the features, download the source and run it as koa se
  
 **Frontend**
  - immutable
- - cross-env --dev
  - ignore-loader --dev
  - react-router-dom, 
  - react-router-server, 

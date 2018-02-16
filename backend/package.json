@@ -11,6 +11,7 @@
     "serialize-javascript": "^1.4.0"
   },
   "scripts": {
-    "start": "nodemon --watch src src/index.js"
+    "start":"node src",
+    "start:dev": "nodemon --watch src src/index.js"
   }
 }

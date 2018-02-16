@@ -1,15 +1,18 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import penderMiddleware from 'redux-pender';
-import modules from './modules';
+import * as modules from './modules';
 
-const configureStore = (initialState) => {
-      const store = createStore(modules, initialState, composeWithDevTools(
-            applyMiddleware(
-                  penderMiddleware(),
+const reducers = combineReducers(modules);
+
+// preloadedState 는 추후 서버사이드 렌더링이 되었을 때 전달받는 초기상태입니다.
+const configure = (preloadedState) =>{
+      return createStore(reducers, preloadedState, composeWithDevTools(
+                  applyMiddleware(
+                        penderMiddleware(),
+                  )
             )
-      ));
-      return store;
+      );
 }
 
-export default configureStore;
+export default configure;
