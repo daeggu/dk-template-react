@@ -7,8 +7,8 @@ import {
   ContactPage,
   ProfilePage
 } from 'pages';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Header from 'components/common/Header';
+import Footer from 'components/common/Footer';
 import SidebarContainer from 'containers/SidebarContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators }from 'redux';

@@ -1,8 +1,8 @@
 import React from 'react';
-import Section from 'components/Section';
-import Title from 'components/Title';
-import Content from 'components/Content/Content';
-import Contact from 'components/Contact';
+import Section from 'components/post/Section';
+import Title from 'components/post/Title';
+import Content from 'components/post/Content';
+import Contact from 'components/common/Contact';
 import { Helmet } from 'react-helmet';
 
 const ContactPage = () => {

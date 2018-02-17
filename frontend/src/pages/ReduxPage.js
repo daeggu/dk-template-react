@@ -1,8 +1,8 @@
 import React from 'react';
 import UserContainer from 'containers/UserContainer';
-import Section from 'components/Section';
-import Title from 'components/Title';
-import Content from 'components/Content';
+import Section from 'components/post/Section';
+import Title from 'components/post/Title';
+import Content from 'components/post/Content';
 
 import { bindActionCreators } from 'redux';
 import * as usersActions from 'store/modules/users';

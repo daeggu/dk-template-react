@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Sidebar from 'components/Sidebar';
+import Sidebar from 'components/common/Sidebar';
 import { withRouter } from 'react-router';
 import onClickOutside from 'react-onclickoutside';
 

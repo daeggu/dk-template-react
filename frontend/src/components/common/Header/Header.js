@@ -11,9 +11,10 @@ const Header = ({handleToggle}) => {
       return (
             <div className={cx('header')}>
                   <div className={cx('image')}>
+                        
                         <div className={cx('info')}>
                               <div className={cx('title')}>
-                                    <b>DK(β)</b>&nbsp;Demo
+                                 <div className={cx('logo')}></div>
                               </div>
                               <div className={cx('icon')}>
                                  <WriteIcon/>

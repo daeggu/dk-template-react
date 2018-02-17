@@ -36,21 +36,25 @@
                         font-weight: 900;
                         font-size: 2.5rem;
                         user-select: none;
+                        .logo{
+                              content: url('static/images/logo.png');
+                              height: 4rem;
+                              width: auto;
+                        }
+                        
                   }
                   .icon{
                         display: flex;
                         align-items: center;
                         flex :1;
                         margin: auto;
-                        height : 4rem;
+                        height : 3.5rem;
                         font-size: 2rem;
                         padding : 1rem;
                         cursor: pointer;
                         .right{
                               margin-left: auto;
-                           
                         }
-
                         &>*{
                               &:hover{
                                     color: $oc-cyan-7;
@@ -60,10 +64,6 @@
                               }
                         }
                   }
-            }
-            b{
-                  font-weight: 900;
-                  color: $oc-cyan-9;
             }
       }
 }
