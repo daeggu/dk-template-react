@@ -10838,9 +10838,9 @@ var SET_TOGGLE = 'base/SET_TOGGLE';
 //Actions
 var setToggle = Object(__WEBPACK_IMPORTED_MODULE_0_redux_actions__["a" /* createAction */])(SET_TOGGLE); // {isOpen: boolean}
 
-var initialState = Object(__WEBPACK_IMPORTED_MODULE_1_immutable__["Record"])({
+var initialState = Object(__WEBPACK_IMPORTED_MODULE_1_immutable__["Map"])({
       isOpen: false
-})();
+});
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux_actions__["b" /* handleActions */])(_defineProperty({}, SET_TOGGLE, function (state, action) {
       var isOpen = action.payload.isOpen;
@@ -10929,6 +10929,9 @@ var render = function () {
 
                     case 13:
                         html = _context.sent;
+
+
+                        //Record의 경우 별도의 방법이 필요함.. 이렇게 전달할경우 정상동작을 위해선 Map으로
                         preloadedState = JSON.stringify(__WEBPACK_IMPORTED_MODULE_8_transit_immutable_js___default.a.toJSON(store.getState())).replace(/</g, '\\u003c');
                         return _context.abrupt('return', {
                             html: html,
@@ -13460,7 +13463,7 @@ var Root = function (_Component) {
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(function (state) {
   return {
-    isOpen: state.base.isOpen
+    isOpen: state.base.get('isOpen')
   };
 }, function (dispatch) {
   return {
@@ -22169,14 +22172,13 @@ module.exports = exports['default'];
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_pender___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_pender__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules__ = __webpack_require__(290);
 
-//import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+//import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'; PRD확인용
 
 
 
 
 var reducers = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])(__WEBPACK_IMPORTED_MODULE_3__modules__);
 
-// preloadedState 는 추후 서버사이드 렌더링이 되었을 때 전달받는 초기상태입니다.
 var configure = function configure(preloadedState) {
       return Object(__WEBPACK_IMPORTED_MODULE_0_redux__["createStore"])(reducers, preloadedState, Object(__WEBPACK_IMPORTED_MODULE_1_redux_devtools_extension_logOnlyInProduction__["composeWithDevTools"])(Object(__WEBPACK_IMPORTED_MODULE_0_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_2_redux_pender___default()())));
 };

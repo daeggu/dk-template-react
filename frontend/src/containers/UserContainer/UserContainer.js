@@ -5,13 +5,13 @@ import * as usersActions from 'store/modules/users';
 
 class UserContainer extends Component {
 
-      // getUserList = () => {
-      //       const { UsersActions} = this.props;
-      //       UsersActions.getUsers();
-      // }
-      // componentDidMount() {
-      //       this.getUserList();     
-      // }
+      getUserList = () => {
+            const { UsersActions} = this.props;
+            UsersActions.getUsers();
+      }
+      componentDidMount() {
+            this.getUserList();     
+      }
 
       render() {
             const { data } = this.props;

@@ -33,6 +33,8 @@ const render = async (ctx) => {
             </StaticRouter>
         </Provider>
     );
+    
+    //Record의 경우 별도의 방법이 필요함.. 이렇게 전달할경우 정상동작을 위해선 Map으로
     const preloadedState = JSON.stringify(transit.toJSON(store.getState()))
                 .replace(/</g, '\\u003c');
 

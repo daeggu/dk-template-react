@@ -1,6 +1,4 @@
 const render = require('./render').default;
-var serialize = require('serialize-javascript')
-
 const manifest = require('../../../frontend/build/asset-manifest.json');
 
 function buildHtml({html, preloadedState}){
@@ -20,7 +18,7 @@ function buildHtml({html, preloadedState}){
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root">${html}</div>
         <script>
-            window.__PRELOADED_STATE__=${serialize(preloadedState)}
+             window.__PRELOADED_STATE__ = ${preloadedState}
         </script>
         <script type="text/javascript" src="/${manifest['vendor.js']}"></script>
         <script type="text/javascript" src="/${manifest['app.js']}"></script>
