@@ -1,6 +1,6 @@
 {
-  "name": "server-side-rendering-frontend",
-  "version": "0.1.0",
+  "name": "frontend",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
