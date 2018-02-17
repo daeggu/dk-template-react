@@ -9,6 +9,7 @@ import melody from 'static/images/melody.png';
 import magicstar1 from 'static/images/magicstar1.png';
 import magicstar2 from 'static/images/magicstar2.png';
 import exp from 'static/images/exp.png';
+import { Helmet } from 'react-helmet';
 
 const expImageArr = [
       {
@@ -50,6 +51,9 @@ const ProfilePage = () => {
       return (
             <div>
                   <Section>
+                        <Helmet>
+                              <title>Profile</title>
+                        </Helmet>
                         <Title>Technical Skills Summary</Title>
                         <Content>
                               <p></p><b>Client: </b> Android(NDK), IOS 

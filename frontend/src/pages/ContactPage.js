@@ -3,10 +3,14 @@ import Section from 'components/Section';
 import Title from 'components/Title';
 import Content from 'components/Content/Content';
 import Contact from 'components/Contact';
+import { Helmet } from 'react-helmet';
 
 const ContactPage = () => {
       return (
             <Section>
+                  <Helmet>
+                        <title>Contact</title>
+                  </Helmet>
                   <Title>
                         Contact
                   </Title>

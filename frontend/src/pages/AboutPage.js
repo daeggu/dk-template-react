@@ -6,6 +6,7 @@ import Content from 'components/Content';
 import summer1 from 'static/images/summer1.png';
 import summer2 from 'static/images/summer2.png';
 import winter from 'static/images/winter.png';
+import { Helmet } from 'react-helmet';
 
 const summerImageArr = [
       {
@@ -25,6 +26,9 @@ const summerImageArr = [
 const AboutPage = () => {
       return (
             <Section>
+                  <Helmet>
+                        <title>About</title>
+                  </Helmet>
                   <Title>
                       Daeggu
                   </Title>

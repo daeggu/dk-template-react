@@ -6,10 +6,14 @@ import Content from 'components/Content';
 
 import { bindActionCreators } from 'redux';
 import * as usersActions from 'store/modules/users';
+import { Helmet } from 'react-helmet';
 
 const ReduxPage = () => {
       return (
             <Section>
+                  <Helmet>
+                        <title>Redux</title>
+                  </Helmet>
                   <Title>
                         ServerSide rendering (with Redux)
                   </Title>

@@ -6,6 +6,7 @@ import Content from 'components/Content';
 import responsive from 'static/images/responsive.png';
 import split from 'static/images/split.png';
 import serverSide from 'static/images/server-side.png';
+import { Helmet } from 'react-helmet';
 
 const imageArr = [{
       url : responsive,
@@ -26,6 +27,9 @@ const HomePage = () => {
       return (
             <div>
                   <Section>
+                        <Helmet>
+                              <title>Daeggu</title>
+                        </Helmet>
                         <Title>
                               Responsive Page
                         </Title>
