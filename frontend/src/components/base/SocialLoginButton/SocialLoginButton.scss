@@ -1,0 +1,47 @@
+@import 'utils';
+
+.social-login-button {
+  display: flex;
+  flex-direction: row;
+  height: 2.4rem;
+  & > div {
+    transition: all .1s ease-in;
+    cursor: pointer;
+    border-radius: 2px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    &.facebook {
+      border: 1px solid $oc-blue-9;
+      color: $oc-blue-9;
+      &:hover {
+        color: white;
+        background: $oc-blue-9;
+        border: 1px solid $oc-blue-9;
+      }
+      &:active {
+        border: 1px solid $oc-blue-8;
+        background: $oc-blue-8;
+      }
+    }
+    &.google {
+      border: 1px solid $oc-red-8;
+      color: $oc-red-8;
+      &:hover {
+        color: white;
+        background: $oc-red-8;
+        border: 1px solid $oc-red-8;
+      }
+      &:active {
+        border: 1px solid $oc-red-7;
+        background: $oc-red-7;
+      }
+    }
+  }
+
+  div + div {
+    margin-left: 0.5rem;
+  }
+}

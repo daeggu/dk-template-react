@@ -38,7 +38,7 @@
                         user-select: none;
                         .logo{
                               content: url('static/images/logo.png');
-                              height: 4rem;
+                              height: 2.5rem;
                               width: auto;
                         }
                         
@@ -56,6 +56,7 @@
                         }
                         &>*{
                               cursor: pointer;
+                              user-select: none;
                               &:hover{
                                     color: $oc-cyan-7;
                               }

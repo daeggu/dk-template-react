@@ -18,6 +18,8 @@ import classNames from 'classnames/bind';
 import SidebarButton from 'react-icons/lib/ti/th-menu';
 import { inform } from 'lib/shouldCancel';
 
+import LoginModal from 'components/modal/LoginModal';
+
 const cx = classNames.bind(styles);
 
 class Root extends Component {
@@ -39,7 +41,7 @@ class Root extends Component {
 
     return (
       <div className={cx('app')}>
-      
+        <LoginModal visible={true}/>
         <SidebarContainer isOpen={isOpen} onClick={handleClose}/>
         <main>
           <div className={cx('button')} onClick={handleOpen}>

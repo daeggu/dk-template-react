@@ -1,0 +1,24 @@
+@import 'utils';
+
+.input {
+  outline: none;
+  border-radius: 2px;
+  border: 1px solid $oc-gray-4;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: color .3s, border-color .3s;
+  &.full-width {
+    width: 100%;
+  }
+  &:focus {
+    border: 1px solid $oc-cyan-7;
+    color: $oc-cyan-7;
+    &::placeholder {
+       color: $oc-cyan-6;
+    }
+  }
+}
+
+.input + .input { 
+  margin-top: 0.5rem;
+}
