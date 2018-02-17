@@ -2,15 +2,10 @@ $breakpoints: (
       // Galaxy S3~S8(360px), GalayTab S(800px)
       // iPhone 6~8 (375px, 414px)
       // PC (1280px, 1440px, 1600px, 1920px)
-      small        :  360px, 
-      mobile       :  736px,
-      narrowest    :  960px,
-      narrower     : 1200px,
-      narrow       : 1320px,
-      medium       : 1500px,
-      normal       : 1620px,
-      wide         : 1880px,
-      dwide        : 2000px,
+      small: 320px,
+      medium: 768px,
+      large: 1024px,
+      wide: 1400px
 );
 
 $z-indexes : (

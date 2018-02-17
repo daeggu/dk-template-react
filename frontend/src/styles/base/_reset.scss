@@ -7,10 +7,10 @@ body {
 }
 html{
       font-size: $normal-font-size;
-      @include media(">=narrow") {
+      @include media(">=large") {
             font-size: $wide-font-size;
       }
-      @include media("<narrow") {
+      @include media("<large") {
             font-size: $normal-font-size;
       }
 }
