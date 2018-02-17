@@ -8,6 +8,7 @@ import {
   ProfilePage
 } from 'pages';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import SidebarContainer from 'containers/SidebarContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators }from 'redux';
@@ -38,6 +39,7 @@ class Root extends Component {
 
     return (
       <div className={cx('app')}>
+      
         <SidebarContainer isOpen={isOpen} onClick={handleClose}/>
         <main>
           <div className={cx('button')} onClick={handleOpen}>
@@ -53,11 +55,7 @@ class Root extends Component {
               <Route path="/contact" component={ContactPage} />
             </div>
           </div>
-          <div className={cx('footer')}>
-            <div className={cx('des')}>
-              Made by <b>Daeggu</b>
-            </div>
-          </div>
+          <Footer/>
         </main>
       </div>
     )

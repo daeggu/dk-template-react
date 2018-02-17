@@ -1,0 +1,17 @@
+@import 'utils';
+
+.footer{
+      height: 5rem;
+      background: $oc-gray-7;
+      background: #222629 url("static/images/overlay.png");
+      box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.1);
+      display : flex;
+      align-items: center;
+      .des{
+            height: 2rem;
+            width: auto;
+            content: url('static/images/logo.png');
+            margin-left: auto;
+            padding-right: 2rem;
+      }
+}
