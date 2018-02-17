@@ -54,6 +54,9 @@ class Root extends Component {
             </div>
           </div>
           <div className={cx('footer')}>
+            <div className={cx('des')}>
+              Made by <b>Daeggu</b>
+            </div>
           </div>
         </main>
       </div>
