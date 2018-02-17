@@ -21,7 +21,7 @@ If you want to try all of the features, download the source and run it as koa se
  - react-router-server, 
  - redux-devtools-extension
  - redux, react-redux, redux-actions, redux-pender
- - transit-immutable-js, "transit-js"
+ - transit-immutable-js, transit-js
  - react-helmet
 
 **Design**
@@ -33,9 +33,10 @@ If you want to try all of the features, download the source and run it as koa se
 
 **Backend**
  - koa, koa-static
+ - koa-router
  - dotenv
  - nodemon
-
+ 
  ## Check (code split & server side rendering)
 
  1. Install dependencies (Both frontend, backend)

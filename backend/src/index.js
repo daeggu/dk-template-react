@@ -10,12 +10,11 @@ const path = require('path');
 const app = new Koa();
 const ssr = require('./ssr');
 const staticPath = path.join(__dirname, '../../frontend/build');
+const Router = require('koa-router');
+const router = new Router();
 
-app.use((ctx, next) => {
-      if(ctx.path === '/') return ssr(ctx);
-      return next();
-});
-
+router.get('/', ssr);
+app.use(router.routes());
 app.use(serve(staticPath));
 app.use(ssr);
 app.listen(port, ()=>{
