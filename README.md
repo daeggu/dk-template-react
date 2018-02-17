@@ -15,6 +15,7 @@ If you want to try all of the features, download the source and run it as koa se
  
 **Frontend**
  - immutable
+ - transit-js transit-immutable-js
  - ignore-loader --dev
  - react-router-dom, 
  - react-router-server, 
@@ -32,7 +33,6 @@ If you want to try all of the features, download the source and run it as koa se
  - koa, koa-static
  - dotenv
  - nodemon
- - serialize-javascript
 
  ## Check (code split & server side rendering)
 

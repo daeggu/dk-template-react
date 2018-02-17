@@ -59,7 +59,7 @@ class Root extends Component {
 
 export default connect(
   (state)=> ({
-    isOpen: state.base.isOpen,
+    isOpen: state.base.get('isOpen'),
   }), 
   (dispatch) => ({
     BaseActions : bindActionCreators(baseActions, dispatch)

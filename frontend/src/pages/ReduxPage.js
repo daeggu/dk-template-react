@@ -4,6 +4,9 @@ import Section from 'components/Section';
 import Title from 'components/Title';
 import Content from 'components/Content';
 
+import { bindActionCreators } from 'redux';
+import * as usersActions from 'store/modules/users';
+
 const ReduxPage = () => {
       return (
             <Section>
@@ -23,4 +26,11 @@ const ReduxPage = () => {
       );
 };
 
+//custom static func
+//필요에 따라 params, query도 받아와도 된다.(Action에 값이 필요한 경우)
+ReduxPage.preload = (dispatch) => {
+      const UserActions = bindActionCreators(usersActions, dispatch);
+      //API종류가 여러개라면 return Promise.all([action1(), actions2()]) 형태로..
+      return UserActions.getUsers();
+}
 export default ReduxPage;

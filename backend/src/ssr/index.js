@@ -3,7 +3,7 @@ var serialize = require('serialize-javascript')
 
 const manifest = require('../../../frontend/build/asset-manifest.json');
 
-function buildHtml({html, state}){
+function buildHtml({html, preloadedState}){
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -20,7 +20,7 @@ function buildHtml({html, state}){
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root">${html}</div>
         <script>
-            window.__PRELOADED_STATE__=${serialize(state)}
+            window.__PRELOADED_STATE__=${serialize(preloadedState)}
         </script>
         <script type="text/javascript" src="/${manifest['vendor.js']}"></script>
         <script type="text/javascript" src="/${manifest['app.js']}"></script>
@@ -30,6 +30,6 @@ function buildHtml({html, state}){
 }
 
 module.exports = async (ctx) => {
-    const rendered = await render(ctx.path);
+    const rendered = await render(ctx);
     ctx.body = buildHtml(rendered);  
  }

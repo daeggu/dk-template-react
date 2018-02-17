@@ -1,21 +1,22 @@
 import { createAction, handleActions } from 'redux-actions';
 import { pender } from 'redux-pender';
+import { Map, List, fromJS } from 'immutable';
 import * as api from 'lib/api';
 
 const GET_USERS = 'users/GET_USERS';
 
 export const getUsers = createAction(GET_USERS, api.getUsers);
 
-const initialState = {
-      data : []
-}
+const initialState = Map({
+      data : List()
+});
+
 export default handleActions ({
       ...pender({
             type: GET_USERS,
             onSuccess: (state, action)=> {
-                  return {
-                       data : action.payload.data
-                  }
+                  const { data } = action.payload
+                return state.set('data', fromJS(data))
             }
       })
 }, initialState);

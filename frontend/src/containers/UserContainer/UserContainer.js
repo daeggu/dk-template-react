@@ -2,19 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as usersActions from 'store/modules/users';
-import { withDone } from 'react-router-server';
 
 class UserContainer extends Component {
 
-      componentWillMount() {
-            const { UsersActions, data, done } = this.props;
-            if(data.length !== 0) return false;
-            UsersActions.getUsers().then(done, done);
-      }
+      // getUserList = () => {
+      //       const { UsersActions} = this.props;
+      //       UsersActions.getUsers();
+      // }
+      // componentDidMount() {
+      //       this.getUserList();     
+      // }
+
       render() {
             const { data } = this.props;
             const userList = data.map(
-                  user => <li key={user.id}>{user.name}</li>
+                  user => <li key={user.get('id')}>{user.get('name')}</li>
             );
             return (
                   <div>
@@ -24,11 +26,11 @@ class UserContainer extends Component {
       }
 }
 
-export default withDone(connect(
+export default connect(
       (state) => ({
-            data: state.users.data
+            data: state.users.get('data')
       }),
       (dispatch) => ({
             UsersActions : bindActionCreators(usersActions, dispatch)
       })
-)(UserContainer));
+)(UserContainer);
