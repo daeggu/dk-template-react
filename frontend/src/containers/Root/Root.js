@@ -15,11 +15,15 @@ import * as baseActions from 'store/modules/base';
 import styles from './Root.scss';
 import classNames from 'classnames/bind';
 import SidebarButton from 'react-icons/lib/ti/th-menu';
+import { inform } from 'lib/shouldCancel';
 
 const cx = classNames.bind(styles);
 
 class Root extends Component {
 
+  componentDidMount() {
+    inform();
+  }
   handleOpen = () => {
     const { BaseActions } = this.props;
     BaseActions.setToggle({isOpen:true});

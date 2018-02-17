@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as usersActions from 'store/modules/users';
+import shouldCancel from 'lib/shouldCancel';
 
 class UserContainer extends Component {
 
       getUserList = () => {
+            if(shouldCancel()) return ;
             const { UsersActions} = this.props;
             UsersActions.getUsers();
       }
       componentDidMount() {
-            this.getUserList();     
+            this.getUserList();
       }
 
       render() {

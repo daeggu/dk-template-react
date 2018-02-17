@@ -1,4 +1,4 @@
-import { ReduxPage } from 'pages';
+import { ReduxPage} from 'pages';
 
 export default [
       {

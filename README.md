@@ -21,7 +21,7 @@ If you want to try all of the features, download the source and run it as koa se
  - react-router-server, 
  - redux-devtools-extension
  - redux, react-redux, redux-actions, redux-pender
-
+ - transit-immutable-js, "transit-js"
 **Design**
  - sass-loader, node-sass
  - classnames
