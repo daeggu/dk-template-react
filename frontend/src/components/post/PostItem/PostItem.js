@@ -6,13 +6,21 @@ import Title from 'components/post/Title';
 import Content from 'components/post/Content';
 import moment from 'moment';
 import MarkdownRender from 'components/common/MarkdownRender';
+import Button from 'components/base/Button';
 
 const cx = classNames.bind(styles);
 
-const PostItem = ({title, body, tags, publishedDate}) => {
+const PostItem = ({
+            title, body, tags, publishedDate,
+            postId, onRemove}) => {
       return (
             <Section>
             <Title>{title}</Title>
+            <Button 
+                  color="dark"
+                  to={`/editor?id=${postId}`}>수정</Button>
+            <Button color="dark">삭제</Button>
+
             <Content>
                   <MarkdownRender markdown={body}/>
 

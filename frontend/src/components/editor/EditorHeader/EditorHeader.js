@@ -5,7 +5,7 @@ import Button from 'components/base/Button';
 
 const cx = classNames.bind(styles);
 
-const EditorHeader = ({onGoBack, onSubmit}) => {
+const EditorHeader = ({onGoBack, onSubmit, isEdit}) => {
   return (
     <div className={cx('editor-header')}>
       <div className={cx('back')}>
@@ -23,7 +23,8 @@ const EditorHeader = ({onGoBack, onSubmit}) => {
             round
             invert
             fontSize="1.2rem"
-            >Write</Button>
+            >{ isEdit ? 'Edit' : 'Write'}
+            </Button>
       </div>
     </div>
   );

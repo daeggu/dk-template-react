@@ -3,12 +3,17 @@ import EditorHeader from 'components/editor/EditorHeader';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 import * as editorActions from 'store/modules/editor';
 
 class EditorHeaderContainer extends Component {
       componentDidMount(){
-            const { EditorActions } = this.props;
+            const { EditorActions, location } = this.props;
             EditorActions.initialize();
+            const { id } = queryString.parse(location.search);
+            if(id){
+                  EditorActions.getPost(id);
+            }
       }
 
       handleGoBack = () => {
@@ -18,13 +23,19 @@ class EditorHeaderContainer extends Component {
 
       handleSubmit = async () => {
             const { title,markdown, tags,
-                   EditorActions, history } = this.props;
+                   EditorActions, history, location } = this.props;
             const post = {
                   title,
                   body: markdown,
                   tags: tags === "" ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
             }
             try{  
+                  const { id } = queryString.parse(location.search);
+                  if(id){
+                        await EditorActions.editPost({id, ... post});
+                        history.push(`/posts/${id}`);
+                        return;
+                  }
                   await EditorActions.writePost(post);
                   history.push(`/posts/${this.props.postId}`)
             }catch(e){
@@ -34,10 +45,12 @@ class EditorHeaderContainer extends Component {
 
       render() {
             const { handleGoBack, handleSubmit } = this;
+            const { id } = queryString.parse(this.props.location.search);
             return (
             <EditorHeader
                   onGoBack={handleGoBack}
                   onSubmit={handleSubmit}
+                  isEdit={id ? true: false}
                   />
             );
       }

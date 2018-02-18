@@ -17,9 +17,14 @@ class PostContainer extends Component {
     componentDidMount(){
           this.initialize();
     }
+    handleRemove = () => {
+      //  미리 만들어두기
+    }
 
     render() {
-      const { loading, post } = this.props;
+      const { loading, post, id } = this.props;
+      const { handleRemove } = this;
+
       if(loading) return null; //로딩시에는 아무것도 보여주지 않음
       
       const { title, body, publishedDate, tags } = post.toJS();
@@ -27,10 +32,12 @@ class PostContainer extends Component {
       return (
             
             <div>
-            <PostItem  
+            <PostItem 
+                  postId={id} 
                   title={title}
                   tags={tags}
                   body={body}
+                  onRemove={handleRemove}
                   publishedDate={publishedDate}
                   />
             </div>

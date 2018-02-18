@@ -4,11 +4,12 @@ import classNames from 'classnames/bind';
 import WriteIcon from 'react-icons/lib/fa/edit';
 import LogIn from 'react-icons/lib/md/lock-outline';
 import { Link } from 'react-router-dom';
+import Button from 'components/base/Button';
 //react-icons/lib/md/lock-outline 
 //react-icons/lib/md/lock-open
 const cx = classNames.bind(styles);
 
-const Header = ({handleToggle}) => {
+const Header = ({postId, onRemove}) => {
       return (
             <div className={cx('header')}>
                   <div className={cx('image')}>
