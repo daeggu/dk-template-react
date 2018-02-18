@@ -1,0 +1,13 @@
+@import 'utils';
+
+.editor-template {
+  .panes {
+    height: calc(100vh - 4rem); // 페이지 높이에서 EditorHeader 크기 빼기
+    display: flex;
+    background: $oc-gray-1; // 임시
+    .pane {
+      display: flex;
+      flex: 1; // 임시
+    }
+  }
+}

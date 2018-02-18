@@ -38,18 +38,9 @@
                      background:$oc-gray-6;
                   }
             }
-            .cover{
-                  overflow-x: hidden;
-                  overflow-y: auto;
-                  word-wrap: break-word;
-                  width: 100%;
-                  .center{
-                     min-height: calc(100vh - 15rem);
-                     background: $oc-gray-1;
-                  }
+            .center{
+                  min-height: calc(100vh - 15rem);
+                  background: $oc-gray-1;
             }
-      }
-      li + li {
-            padding-top: 0.5rem;
       }
 }

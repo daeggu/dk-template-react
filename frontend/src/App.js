@@ -12,7 +12,7 @@ const App = () => {
       return (
             <Provider store={store}>
                   <BrowserRouter>
-                        <Route path="/" component={Root}/>
+                        <Route component={Root}/>
                   </BrowserRouter>
             </Provider>
       );
