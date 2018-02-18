@@ -1,8 +1,11 @@
 import React from 'react';
 import styles from './Button.scss';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
+
+const Div = ({children, ...rest}) => <div {...rest}>{children}</div>
 
 const Button = ({
             children,            
@@ -17,6 +20,7 @@ const Button = ({
             xPadding,
             style,
             disabled,
+            to,
             ...rest}) => {
             
             const dynamicStyle = {
@@ -26,8 +30,10 @@ const Button = ({
                   } : {})
             }
 
+            const Element = (to && !disabled) ? Link : Div;
+
             return (
-                  <div className={
+                  <Element className={
                         cx('button', {
                               invert,
                               flex,
@@ -42,9 +48,10 @@ const Button = ({
                               ...style,
                               ...dynamicStyle
                         }}
+                        to={to}
                         {...rest} >
                         {children}      
-                  </div>
+                  </Element>
       );
 };
 

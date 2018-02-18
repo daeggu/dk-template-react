@@ -10,7 +10,6 @@ import MarkdownRender from 'components/common/MarkdownRender';
 const cx = classNames.bind(styles);
 
 const PostItem = ({title, body, tags, publishedDate}) => {
-      console.log(title);
       return (
             <Section>
             <Title>{title}</Title>

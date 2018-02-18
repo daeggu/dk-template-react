@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PostList from 'components/post/PostList';
 import Pagination from 'components/post/Pagination';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import * as listActions from 'store/modules/list';
@@ -19,8 +18,9 @@ class PostListContainer extends Component {
             this.getPostList();
       }
       
-      componentDidUPdate(prevProps, prevState) {
+      componentDidUpdate(prevProps, prevState) {
          if(prevProps.page !== this.props.page){
+            console.log(prevProps, prevState );
             this.getPostList();
             document.documentElement.scrollTop = 0; 
          }

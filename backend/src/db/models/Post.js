@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 3;
 
 const Post = new Schema({
       title: String,

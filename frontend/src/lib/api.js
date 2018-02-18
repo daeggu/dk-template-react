@@ -8,4 +8,4 @@ export const writePost = ({title, body, tags}) =>
       axios.post('/api/v1.0/posts', {title, body, tags});
 export const getPost = (id) => axios.get(`/api/v1.0/posts/${id}`)
 export const getPostList = ({page}) =>
-      axios.get(`/api/v1.0/posts?${queryString.stringify({page})}`);
+      axios.get(`/api/v1.0/posts?${queryString.stringify({ page })}`);

@@ -38,6 +38,7 @@ class BaseContainer extends Component {
             <Route path="/about" component={AboutPage} />
             <Route path="/profile" component={ProfilePage} />
             <Switch>
+                <Route path="/posts/page/:page" component={PostListPage}/>
                 <Route path="/posts/:id" component={PostPage}/>
                 <Route path="/posts" component={PostListPage}/>
             </Switch>

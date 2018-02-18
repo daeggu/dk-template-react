@@ -4,7 +4,6 @@ import PostListContainer from 'containers/PostListContainer';
 const PostListPage = ({match}) => {
 
       const { page = 1 } = match.params;
-
       return (
             <div>
                 <PostListContainer

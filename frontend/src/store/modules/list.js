@@ -22,8 +22,9 @@ export default handleActions({
             onSuccess: (state, action) => {
                   const { data: posts } = action.payload;
                   const lastPage = action.payload.headers['last-page'];
+                  //char to number
                   return state.set('posts', fromJS(posts))
-                              .set('lastPage', lastPage);
+                              .set('lastPage', (lastPage*1));
             }
       })
 }, initialState)
