@@ -4,10 +4,12 @@ import * as postActions from 'store/modules/post';
 import * as baseActions from 'store/modules/base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import shouldCancel from 'lib/shouldCancel';
 
 class PostContainer extends Component {
  
     initialize = async () => {
+          if(shouldCancel()) return;
           const { PostActions, id } = this.props;
           try{
                 await PostActions.getPost(id);

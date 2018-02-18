@@ -32,6 +32,11 @@ function buildHtml({html, helmet, preloadedState}){
 }
 
 module.exports = async (ctx) => {
-    const rendered = await render(ctx);
-    ctx.body = buildHtml(rendered);  
+    try{
+        const rendered = await render(ctx);
+        ctx.body = buildHtml(rendered);  
+
+    }catch(e){
+        ctx.body = buildHtml({});
+    }
  }

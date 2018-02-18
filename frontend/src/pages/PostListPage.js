@@ -1,5 +1,7 @@
 import React from 'react';
 import PostListContainer from 'containers/PostListContainer';
+import * as listActions from 'store/modules/list';
+import { bindActionCreators } from 'redux';
 
 const PostListPage = ({match}) => {
 
@@ -12,5 +14,13 @@ const PostListPage = ({match}) => {
             </div>
       );
 };
+
+PostListPage.preload = (dispatch, params) => {
+      const { page = 1} = params;
+      const ListActions = bindActionCreators(listActions, dispatch);
+      return ListActions.getPostList({
+            page
+      });
+}
 
 export default PostListPage;

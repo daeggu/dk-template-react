@@ -66,6 +66,8 @@ module.exports = {
       'react-router-dom',
       'redux',
       'axios',
+      'codemirror',
+      'prismjs'
     ]
   },
     

@@ -20,7 +20,7 @@ const render = async () => {
             if(!match) return;
             const { getComponent } = route.component;
             if(!getComponent) return;
-            getComponents.push(getComponent());
+               getComponents.push(getComponent());
             }
       );
       await Promise.all(getComponents);

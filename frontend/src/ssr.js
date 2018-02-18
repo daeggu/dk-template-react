@@ -7,22 +7,29 @@ import ReactDOMServer from 'react-dom/server';
 import routes from './routes';
 import transit from 'transit-immutable-js';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 const render = async (ctx) => {
     //url : /posts?page=1  , path : /posts
-    const { url } = ctx;
+    const { origin } = ctx;
     const store = configure();
     const promises = [];
+    axios.defaults.baseURL = origin;
+    
+    let { url } = ctx;
     routes.forEach(
         route => {
             const match = matchPath(url, route);
             if(!match) return ;
-            const { preload } = route.component;
+            const { component } = route;
+            const { preload } = component;
             if(!preload) return ;
-            const promise = preload(store.dispatch);
+            const { params } = match;
+            const promise = preload(store.dispatch, params);
             promises.push(promise);
         }
     );
+    
     try{
         await Promise.all(promises);
     }catch(e){
