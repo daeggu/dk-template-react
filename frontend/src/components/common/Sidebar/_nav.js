@@ -17,6 +17,11 @@ export default {
                   icon : require('react-icons/lib/fa/user')
             },
             {
+                  name : 'Posts',
+                  url : '/posts',
+                  icon : require('react-icons/lib/fa/book')
+            },
+            {
                   name : 'Contact',
                   url : '/contact',
                   icon: require('react-icons/lib/fa/envelope')

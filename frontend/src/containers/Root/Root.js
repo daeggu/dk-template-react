@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import {
   HomePage,
   AboutPage,
   ReduxPage,
   ContactPage,
-  ProfilePage
+  ProfilePage,
+  PostListPage,
+  PostPage
 } from 'pages';
 import Header from 'components/common/Header';
 import Footer from 'components/common/Footer';
@@ -41,7 +43,8 @@ class Root extends Component {
 
     return (
       <div className={cx('app')}>
-        <LoginModal visible={true}/>
+        {/* <LoginModal visible={true}/> */}
+       
         <SidebarContainer isOpen={isOpen} onClick={handleClose}/>
         <main>
           <div className={cx('button')} onClick={handleOpen}>
@@ -52,9 +55,13 @@ class Root extends Component {
             <div className={cx('center')}>
               <Route exact path="/" component={HomePage} />
               <Route path="/about" component={AboutPage} />
-              <Route path="/redux" component={ReduxPage} />
               <Route path="/profile" component={ProfilePage} />
+              <Switch>
+                  <Route path="/posts/:id" component={PostPage}/>
+                  <Route path="/posts" component={PostListPage}/>
+              </Switch>
               <Route path="/contact" component={ContactPage} />
+              <Route path="/redux" component={ReduxPage} />
             </div>
           </div>
           <Footer/>

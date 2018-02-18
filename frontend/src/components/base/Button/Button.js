@@ -8,11 +8,12 @@ const Button = ({
             children,            
             flex,
             className,
-            roundCorner,
+            round,
             invert,
             flat,
             color,
             padding="0.5rem",
+            fontSize="1rem",
             xPadding,
             style,
             disabled,
@@ -31,11 +32,13 @@ const Button = ({
                               invert,
                               flex,
                               flat,
-                              disabled
+                              disabled,
+                              round
                               }, color, className)
                         }
                         style={{
                               padding,
+                              fontSize,
                               ...style,
                               ...dynamicStyle
                         }}

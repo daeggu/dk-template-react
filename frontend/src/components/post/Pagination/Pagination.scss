@@ -1,0 +1,26 @@
+@import 'utils';
+.pagination {
+  display: flex;
+  width: 960px;
+  margin :auto;
+  transition: ease-in-out all 0.5s;
+  @include media(">wide"){
+      width: 1024px;
+  }
+  @include media(">wide"){
+      width: 1024px;
+  }
+  @include media("<large"){
+      width: 768px;
+  }
+  @include media("<medium"){
+      width: calc(100% - 0.5rem);
+  }
+ 
+  .number {
+    font-size: 0.85rem;
+    text-align: center;
+    color: $oc-gray-6;
+    flex: 1; // 남은 공간을 다 차지
+  }
+}
