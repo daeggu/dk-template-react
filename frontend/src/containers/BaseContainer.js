@@ -9,13 +9,27 @@ import {
   PostListPage,
   PostPage,
 } from 'pages';
-import SidebarContainer from 'containers/SidebarContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators }from 'redux';
 import * as baseActions from 'store/modules/base';
 import PageTemplate from 'components/common/PageTemplate';
+import SidebarContainer from 'containers/SidebarContainer';
+import LoginModalContainer from 'containers/LoginModalContainer';
+import HeaderContainer from 'containers/HeaderContainer';
+
 
 class BaseContainer extends Component {
+
+  initialize = async () => {
+    const { BaseActions } = this.props;
+    if(localStorage.logged === 'true'){
+      BaseActions.tempLogin();
+    }
+    BaseActions.checkLogin();
+  }
+  componentDidMount() {
+    this.initialize();
+  }
 
   handleOpen = () => {
     const { BaseActions } = this.props;
@@ -31,8 +45,10 @@ class BaseContainer extends Component {
 
     return (
       <div>
+        <LoginModalContainer/>
         <PageTemplate 
             sidebar={<SidebarContainer isOpen={isOpen} onClick={handleClose}/>}
+            header={<HeaderContainer/>}
             onOpen={handleOpen}>
             <Route exact path="/" component={HomePage} />
             <Route path="/about" component={AboutPage} />

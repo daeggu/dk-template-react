@@ -18,3 +18,7 @@ export const editPost = ({id, title, body, tags}) =>
 
 export const removePost = (id) =>
        axios.delete(`/api/v1.0/posts/${id}`);
+
+export const login = (password) => axios.post('/api/v1.0/auth/login', { password });
+export const checkLogin = () => axios.get('/api/v1.0/auth/check');
+export const logout = () => axios.post('/api/v1.0/auth/logout');

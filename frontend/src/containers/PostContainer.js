@@ -24,7 +24,7 @@ class PostContainer extends Component {
     }
 
     render() {
-      const { loading, post, id } = this.props;
+      const { loading, post, id, logged } = this.props;
       const { handleRemove } = this;
 
       if(loading) return null; //로딩시에는 아무것도 보여주지 않음
@@ -39,6 +39,7 @@ class PostContainer extends Component {
                   title={title}
                   tags={tags}
                   body={body}
+                  logged={logged}
                   onRemove={handleRemove}
                   publishedDate={publishedDate}
                   />
@@ -50,7 +51,8 @@ class PostContainer extends Component {
 export default connect(
       (state) => ({
             post : state.post.get('post'),
-            loading : state.pender.pending['post/GET_POST'] //로딩상태
+            loading : state.pender.pending['post/GET_POST'], //로딩상태
+            logged: state.base.get('logged')
       }),
       (dispatch) => ({
             PostActions: bindActionCreators(postActions, dispatch),

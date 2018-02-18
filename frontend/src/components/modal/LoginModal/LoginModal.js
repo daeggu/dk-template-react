@@ -30,6 +30,7 @@ const LoginModal = ({
                   className={cx('login')}
                   onClick={onLogin}
                   >로그인</Button>
+            { error && <div className={cx('error')}>로그인 실패</div> }
             <div className={cx('separator')}>
                   <div className={cx('or')}>OR</div>
             </div>
