@@ -1,55 +1,39 @@
 import React from 'react';
 import styles from './PostList.scss';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
 import Section from 'components/post/Section';
+import { Link } from 'react-router-dom';
 import Title from 'components/post/Title';
 import Content from 'components/post/Content';
-import Pagination from 'components/post/Pagination';
+import moment from 'moment';
 
 const cx = classNames.bind(styles);
 
-const PostList = () => {
-      const postArr = [
-            {
-                  title : 'title',
-                  time : 'time',
-                  tags : 'tags'
-            },
-            {
-                  title : 'title2',
-                  time : 'time',
-                  tags : 'tags'
-            },
-            {
-                  title : 'title2',
-                  time : 'time',
-                  tags : 'tags'
-            },
-      ];
+const PostList = ({posts}) => {
 
-      const render =
-      postArr.map((post, i) => {
+      const render = posts.map((post)=> {
+            const {_id, title, publishedDate, tags } = post;
             return (
-                 <Link  key={i} to={`/posts/${i}`}>
-                        <p></p>
+                  <div key={_id}>
                         <Title>
-                              {post.title} 
+                              <Link to={`/posts/${_id}`}>
+                                    {title}
+                              </Link>
                         </Title>
                         <Content>
-                              {post.time} {post.tags} 
+                              {tags}
+                              <p>
+                                 {moment(publishedDate).format('ll')}
+                              </p>
                         </Content>
-                  </Link>
+                  </div>
             );
       });
 
       return (
-            <div>
-                  <Section >
+            <Section >
                   {render}
-                  </Section>
-                  <Pagination/>
-            </div>
+            </Section>
       );
 };
 
