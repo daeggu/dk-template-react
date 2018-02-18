@@ -4,25 +4,29 @@ import classNames from 'classnames/bind';
 import Section from 'components/post/Section';
 import Title from 'components/post/Title';
 import Content from 'components/post/Content';
+import moment from 'moment';
+import MarkdownRender from 'components/common/MarkdownRender';
 
 const cx = classNames.bind(styles);
 
-const Post = ({match}) => {
+const PostItem = ({title, body, tags, publishedDate }) => {
       
       return (
             <Section>
-            <Title>PostDetail {match.params.id}</Title>
+            <Title>{title}</Title>
             <Content>
-                  <p></p><b>Client: </b> Android(NDK), IOS 
-                  <p></p><b>DB: </b> Oracle, Mysql, MongoDB 
-                  <p></p><b>Server: </b> Spring, Node.js(Express, Koa)
-                  <p></p><b>Web: </b> React, Vue, SpringBoot + thymeleaf, Websocket, Sass, Responsvie Web
-                  <p></p><b>Infra: </b> Cloud(AWS, GCP), CI/CD(Terraform, Packer, Ansible, Jenkins, Azkaban)
-                  <p></p><b>etc: </b> Machine Learning, DSP(STFT, OpenCV), Matlab, ELK, nGrinder
+                  <MarkdownRender markdown={body}/>
+
+                  <div className={cx('tags')}>
+                        {tags}
+                  </div>
+                  <div className={cx('date')}>
+                        {moment(publishedDate).format('ll')}
+                  </div>
             </Content>
             </Section>
           
       );
 };
 
-export default Post;
+export default PostItem;

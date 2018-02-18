@@ -42,6 +42,9 @@ class MarkdownRender extends Component {
             //cdm이 아닌 이유는 서버사이드 렌더링을 할 때도 진행되어야 하기 때문
             this.renderMarkdown();
       }
+      componentDidMount() {
+            Prism.highlightAll();
+      }
 
       componentDidUpdate(prevProps, prevState){
             if(prevProps.markdown !== this.props.markdown){

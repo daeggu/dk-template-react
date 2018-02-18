@@ -25,7 +25,6 @@ class EditorHeaderContainer extends Component {
                   tags: tags === "" ? [] : [...new Set(tags.split(',').map(tag => tag.trim()))]
             }
             try{  
-                  console.log(post);
                   await EditorActions.writePost(post);
                   history.push(`/posts/${this.props.postId}`)
             }catch(e){

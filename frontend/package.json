@@ -33,6 +33,7 @@
     "include-media": "^1.4.9",
     "jest": "20.0.4",
     "marked": "^0.3.14",
+    "moment": "^2.20.1",
     "node-sass": "^4.7.2",
     "object-assign": "4.1.1",
     "open-color": "^1.6.2",
@@ -117,5 +118,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy" : "http://localhost:4000"
+  "proxy": "http://localhost:4000"
 }

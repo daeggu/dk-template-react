@@ -1,10 +1,10 @@
 import React from 'react';
-import PostItem from 'components/post/PostItem'
+import PostContainer from 'containers/PostContainer';
 
 const PostPage = ({match}) => {
+      const { id } = match.params;
       return (
-      
-         <PostItem match={match}/>
+         <PostContainer id={id}/>
       );
 };
 
