@@ -19,7 +19,7 @@ const PostItem = ({
             <Button 
                   color="dark"
                   to={`/editor?id=${postId}`}>수정</Button>
-            <Button color="dark">삭제</Button>
+            <Button color="dark" onClick={onRemove}>삭제</Button>
 
             <Content>
                   <MarkdownRender markdown={body}/>

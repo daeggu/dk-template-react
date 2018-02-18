@@ -6,7 +6,6 @@ import Button from 'components/base/Button';
 const cx = classNames.bind(styles);
 
 const Pagination = ({page, lastPage}) => {
-  console.log(page, lastPage);
   const createPagePath = (page) => {
     return `/posts/page/${page}`;
   }

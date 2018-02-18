@@ -20,7 +20,6 @@ class PostListContainer extends Component {
       
       componentDidUpdate(prevProps, prevState) {
          if(prevProps.page !== this.props.page){
-            console.log(prevProps, prevState );
             this.getPostList();
             document.documentElement.scrollTop = 0; 
          }

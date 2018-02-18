@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PostItem from 'components/post/PostItem';
 import * as postActions from 'store/modules/post';
+import * as baseActions from 'store/modules/base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -18,7 +19,8 @@ class PostContainer extends Component {
           this.initialize();
     }
     handleRemove = () => {
-      //  미리 만들어두기
+      const { BaseActions } = this.props;
+      BaseActions.showModal('remove');
     }
 
     render() {
@@ -51,6 +53,7 @@ export default connect(
             loading : state.pender.pending['post/GET_POST'] //로딩상태
       }),
       (dispatch) => ({
-            PostActions: bindActionCreators(postActions, dispatch)
+            PostActions: bindActionCreators(postActions, dispatch),
+            BaseActions: bindActionCreators(baseActions, dispatch)
       })
 )(PostContainer);
