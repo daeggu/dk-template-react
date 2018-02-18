@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { inform } from 'lib/shouldCancel';
+import { EditorPage } from 'pages';
 import BaseContainer from 'containers/BaseContainer';
-import EditorContainer from 'containers/EditorContainer';
 
 class Root extends Component {
 
@@ -13,7 +13,7 @@ class Root extends Component {
     return (
       <div>
           <Switch>
-              <Route path="/editor" component={EditorContainer} />
+              <Route path="/editor" component={EditorPage} />
               <Route path="/" component={BaseContainer} />
           </Switch>
       </div>

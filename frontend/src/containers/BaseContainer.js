@@ -13,7 +13,7 @@ import SidebarContainer from 'containers/SidebarContainer';
 import { connect } from 'react-redux';
 import { bindActionCreators }from 'redux';
 import * as baseActions from 'store/modules/base';
-import PageTemplate from 'components/template/PageTemplate';
+import PageTemplate from 'components/common/PageTemplate';
 
 class BaseContainer extends Component {
 

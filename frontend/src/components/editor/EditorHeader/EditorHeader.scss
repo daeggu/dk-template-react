@@ -1,0 +1,14 @@
+@import 'utils';
+
+.editor-header {
+  background: url('static/images/banner.png');
+  height: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+
+  .submit { // 우측 정렬
+    margin-left: auto;
+  }
+}

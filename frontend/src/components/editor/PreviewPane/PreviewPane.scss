@@ -1,0 +1,13 @@
+@import 'utils';
+.preview-pane {
+  flex: 1;
+  padding: 2rem;
+  font-size: 1.125rem;
+  background: white;
+  .title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $oc-gray-4;
+  }
+}
