@@ -8,6 +8,7 @@ import {
   ProfilePage,
   PostListPage,
   PostPage,
+  NotFoundPage
 } from 'pages';
 import { connect } from 'react-redux';
 import { bindActionCreators }from 'redux';
@@ -60,6 +61,7 @@ class BaseContainer extends Component {
             </Switch>
             <Route path="/contact" component={ContactPage} />
             <Route path="/redux" component={ReduxPage} />
+            <Route component={NotFoundPage}/>
         </PageTemplate>
       </div>
 

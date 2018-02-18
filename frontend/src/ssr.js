@@ -34,13 +34,22 @@ const render = async (ctx) => {
         await Promise.all(promises);
     }catch(e){
     }
+
+    //NotFound (context={context})
+    const context = {};
+
     const html = await ReactDOMServer.renderToString(
         <Provider store={store}>
-            <StaticRouter location={url}>
+            <StaticRouter location={url} context={context}>
                 <Root />
             </StaticRouter>
         </Provider>
     );
+
+    // isNotFound 값이 true 라면
+    if(context.isNotFound) {
+        ctx.status = 404; // HTTP 상태를 404로 설정해줍니다
+    }
     
     //한번 렌더링 작업 완료된다음에 실행되어야함.. 
     //이작업이 생략되면 메모리 누수현상발생

@@ -17,7 +17,6 @@ class Root extends Component {
               <Route path="/" component={BaseContainer} />
           </Switch>
       </div>
-
     )
   }
 }

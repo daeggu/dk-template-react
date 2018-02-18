@@ -7,6 +7,7 @@ import Content from 'components/post/Content';
 import moment from 'moment';
 import MarkdownRender from 'components/common/MarkdownRender';
 import Button from 'components/base/Button';
+import { Helmet } from 'react-helmet';
 
 const cx = classNames.bind(styles);
 
@@ -14,6 +15,10 @@ const PostItem = ({
             title, body, tags, publishedDate,
             logged, postId, onRemove}) => {
       return (
+            <div>
+            <Helmet>
+                  <title>{title}</title>
+            </Helmet>
             <Section>
             <Title>{title}</Title>
             {
@@ -27,7 +32,6 @@ const PostItem = ({
                               onClick={onRemove}>삭제</Button>
                   </div>
             }
-
             <Content>
                   <MarkdownRender markdown={body}/>
 
@@ -39,7 +43,7 @@ const PostItem = ({
                   </div>
             </Content>
             </Section>
-          
+            </div>
       );
 };
 

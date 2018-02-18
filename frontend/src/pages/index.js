@@ -6,3 +6,4 @@ export { default as PostListPage } from './PostListPage';
 export { default as PostPage } from './PostPage';
 export { default as ProfilePage } from './ProfilePage';
 export { default as ReduxPage } from './ReduxPage';
+export { default as NotFoundPage } from './NotFoundPage';
