@@ -5,6 +5,7 @@
     height: calc(100vh - 4rem); // 페이지 높이에서 EditorHeader 크기 빼기
     display: flex;
     position: relative; // separator 의 위치설정을 위하여 relative 로 설정
+    background: white;
     .pane {
       display: flex;
       min-width: 0; // 내부의 내용이 커도 반대편 영역을 침범하지 않게 해줌
