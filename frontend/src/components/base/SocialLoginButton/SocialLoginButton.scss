@@ -16,6 +16,7 @@
     &.facebook {
       border: 1px solid $oc-blue-9;
       color: $oc-blue-9;
+      opacity: 0.7;
       &:hover {
         color: white;
         background: $oc-blue-9;
@@ -29,6 +30,7 @@
     &.google {
       border: 1px solid $oc-red-8;
       color: $oc-red-8;
+      opacity: 0.7;
       &:hover {
         color: white;
         background: $oc-red-8;

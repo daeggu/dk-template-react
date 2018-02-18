@@ -1,19 +1,39 @@
 @import 'utils';
 
-.question {
-  background: white;
-  padding: 2rem;
-  .title {
-    font-size: 1.25rem;
-    font-weight: 500;
-  }
-  .description {
-    margin-top: 0.25rem;
-  }
-}
+.ask-modal{
 
-.options {
-  padding: 1rem;
-  background: $oc-gray-1;
-  text-align: right;
+
+  
+  @include material-shadow(3);
+  .question {
+    background: white;
+    padding: 2rem;
+    .title {
+      color: $oc-cyan-9;
+      font-weight: 900;
+    }
+    .description {
+      padding-top: 1.5rem;
+    }
+   }
+   .separator { 
+      display: block;
+      background: $oc-gray-2;
+      width: 100%;
+      height:1px;
+      position: relative;
+  }
+  
+  .bar {
+    height: 15px;
+  //  background: linear-gradient(to right, $oc-gray-9,$oc-gray-6);
+    background: $oc-gray-7;
+  }
+  .options {
+    text-align: right;
+    padding : 0.8rem;
+    >*{
+      margin-left: 0.5rem;
+    }
+  }
 }

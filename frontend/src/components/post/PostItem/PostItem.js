@@ -24,14 +24,10 @@ const PostItem = ({
             </Helmet>
             <Section>
             <Title 
+                  post
                   button={
                         logged && 
                         <div className={cx('buttons')}>
-                              <Button 
-                                    color="dark"
-                                    round
-                                    to="/posts">뒤로</Button>
-
                               <Button 
                                     color="dark"
                                     round

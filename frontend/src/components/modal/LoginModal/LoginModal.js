@@ -16,15 +16,15 @@ const LoginModal = ({
       <div className={cx('content')}>
             <b>관리자 로그인</b><p></p>
             <Input 
-                    value={password}
-                    name="password"
-                    onChange={onChange}
-                    onKeyPress={onKeyPress}
-                    fullWidth
-                    placeholder="비밀번호"
-                    type="password"/>
+                  value={password}
+                  name="password"
+                  onChange={onChange}
+                  onKeyPress={onKeyPress}
+                  fullWidth
+                  placeholder="비밀번호"
+                  type="password"/>
             <Button
-                  flat color="cyan"
+                  color="dark"
                   flex padding="0.6rem"
                   className={cx('login')}
                   onClick={onLogin}

@@ -20,8 +20,9 @@
   @include material-shadow(3);
 
   .bar {
-    height: 20px;
-    background: linear-gradient(to right, $oc-cyan-8,$oc-cyan-5);
+    height: 15px;
+  //  background: linear-gradient(to right, $oc-gray-9,$oc-gray-6);
+    background: $oc-gray-7;
   }
 
   .content {
