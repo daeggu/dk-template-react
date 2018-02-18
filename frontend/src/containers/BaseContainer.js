@@ -51,17 +51,17 @@ class BaseContainer extends Component {
             sidebar={<SidebarContainer isOpen={isOpen} onClick={handleClose}/>}
             header={<HeaderContainer/>}
             onOpen={handleOpen}>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/about" component={AboutPage} />
-            <Route path="/profile" component={ProfilePage} />
             <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route path="/about" component={AboutPage} />
+                <Route path="/profile" component={ProfilePage} />
                 <Route path="/posts/page/:page" component={PostListPage}/>
                 <Route path="/posts/:id" component={PostPage}/>
                 <Route path="/posts" component={PostListPage}/>
+                <Route path="/contact" component={ContactPage} />
+                <Route path="/redux" component={ReduxPage} />
+                <Route component={NotFoundPage}/>
             </Switch>
-            <Route path="/contact" component={ContactPage} />
-            <Route path="/redux" component={ReduxPage} />
-            <Route component={NotFoundPage}/>
         </PageTemplate>
       </div>
 

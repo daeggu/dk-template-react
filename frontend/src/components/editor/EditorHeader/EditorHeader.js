@@ -13,7 +13,7 @@ const EditorHeader = ({onGoBack, onSubmit, isEdit}) => {
             onClick={onGoBack}
             round
             invert
-            fontSize="1.2rem"
+            fontSize="1rem"
             xPadding="1rem"
             >Back</Button>
       </div>
@@ -22,7 +22,7 @@ const EditorHeader = ({onGoBack, onSubmit, isEdit}) => {
             onClick={onSubmit}
             round
             invert
-            fontSize="1.2rem"
+            fontSize="1rem"
             >{ isEdit ? 'Edit' : 'Write'}
             </Button>
       </div>

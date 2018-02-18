@@ -1,13 +1,19 @@
 @import 'utils';
 .not-found {
-  background: $oc-gray-9;
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: z-index-for('not-found');
+
+  background: url('static/images/banner.png');
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: white;
     font-weight: 400;
   }

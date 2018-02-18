@@ -4,10 +4,13 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const Title = ({children}) => {
+const Title = ({children, button}) => {
       return (
             <div className={cx('title')}>
                   {children}
+                  <div className={cx('button')}>
+                         {button}
+                  </div>
             </div>
       );
 };

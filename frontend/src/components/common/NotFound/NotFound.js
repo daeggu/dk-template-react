@@ -10,7 +10,10 @@ const NotFound = ({onGoBack}) => (
     <h2>
       존재하지 않는 페이지입니다.
     </h2>
-    <Button onClick={onGoBack}>
+    <Button 
+      invert
+      xPadding="1rem"
+      onClick={onGoBack}>
       돌아가기
     </Button>
   </div>

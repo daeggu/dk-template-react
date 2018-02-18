@@ -38,7 +38,7 @@ const LoginModal = ({
                   <SocialLoginButton/>
             </div>
       </div>
-</div>
+  </div>
   </ModalWrapper>
 );
 

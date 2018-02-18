@@ -29,6 +29,7 @@ class LoginModalContainer extends Component {
                   this.handleLogin();
             }
       }
+   
       render() {
             const { 
                   handleLogin, handleCancel,

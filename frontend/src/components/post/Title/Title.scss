@@ -4,4 +4,10 @@
       padding: 5px;
       font-weight: 900;
       border-left: 7px solid $oc-cyan-8;
+      display: flex;
+
+      .button{
+            margin-left: auto;
+      }
+      
 }

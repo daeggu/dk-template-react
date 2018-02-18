@@ -20,18 +20,21 @@ const PostItem = ({
                   <title>{title}</title>
             </Helmet>
             <Section>
-            <Title>{title}</Title>
-            {
-                  logged && 
-                  <div>
-                        <Button 
-                              color="dark"
-                              to={`/editor?id=${postId}`}>수정</Button>
-                        <Button 
-                              color="dark"
-                              onClick={onRemove}>삭제</Button>
-                  </div>
-            }
+            <Title 
+                  button={
+                        logged && 
+                        <div className={cx('buttons')}>
+                              <Button 
+                                    color="dark"
+                                    round
+                                    to={`/editor?id=${postId}`}>수정</Button>
+                              <Button 
+                                    color="dark"
+                                    round
+                                    onClick={onRemove}>삭제</Button>
+                        </div>}
+                  
+                  >{title}</Title>
             <Content>
                   <MarkdownRender markdown={body}/>
 
