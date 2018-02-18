@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './LoginModal.scss';
 import classNames from 'classnames/bind';
-import ModalWrapper from 'components/modal/ModalWrapper';
+
 import Button from 'components/base/Button';
 import Input from 'components/base/Input';
 import SocialLoginButton from 'components/base/SocialLoginButton';
@@ -9,10 +9,8 @@ import SocialLoginButton from 'components/base/SocialLoginButton';
 const cx = classNames.bind(styles);
 
 const LoginModal = ({
-  visible, password, error, onCancel, 
-  onLogin,  onChange, onKeyPress
+  password, error, onLogin,  onChange, onKeyPress
 }) => (
-  <ModalWrapper visible={visible}>
    <div className={cx('login-modal')}>
       <div className={cx('bar')}></div>
       <div className={cx('content')}>
@@ -21,6 +19,7 @@ const LoginModal = ({
                     value={password}
                     name="password"
                     onChange={onChange}
+                    onKeyPress={onKeyPress}
                     fullWidth
                     placeholder="비밀번호"
                     type="password"/>
@@ -39,7 +38,7 @@ const LoginModal = ({
             </div>
       </div>
   </div>
-  </ModalWrapper>
+
 );
 
 export default LoginModal;

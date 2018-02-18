@@ -1,0 +1,34 @@
+@import 'utils';
+
+.tags {
+      font-size: 0.85rem;
+      color: $oc-blue-6;
+      a {
+        &:hover {
+          color: $oc-blue-7;
+          text-decoration: none;
+        }
+      }
+      a + a {
+        margin-left: 0.5rem;
+      }
+}
+
+.date {
+      font-size: 0.85rem;
+      color: $oc-gray-5;
+      margin-left: 1rem;
+}
+
+.post-item + .post-item {
+      border-top: 1px solid $oc-gray-3;
+      padding-top: 1rem;
+}
+
+a {
+  user-select: none;
+  &:hover {
+    color: $oc-cyan-7;
+    text-decoration: none;
+  }
+}

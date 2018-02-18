@@ -7,23 +7,31 @@ import Content from 'components/post/Content';
 import moment from 'moment';
 import MarkdownRender from 'components/common/MarkdownRender';
 import Button from 'components/base/Button';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import removeMd from 'remove-markdown';
 
 const cx = classNames.bind(styles);
 
 const PostItem = ({
             title, body, tags, publishedDate,
-            logged, postId, onRemove}) => {
+            logged, postId, onRemove, onBack}) => {
       return (
             <div>
             <Helmet>
                   <title>{title}</title>
+                  <meta name="description" content={removeMd(body).slice(0, 200)}/>
             </Helmet>
             <Section>
             <Title 
                   button={
                         logged && 
                         <div className={cx('buttons')}>
+                              <Button 
+                                    color="dark"
+                                    round
+                                    onClick={onBack}>뒤로</Button>
+
                               <Button 
                                     color="dark"
                                     round
@@ -36,14 +44,16 @@ const PostItem = ({
                   
                   >{title}</Title>
             <Content>
+                  <div className={cx('date')}>
+                                    {moment(publishedDate).format('ll')}
+                  </div>
                   <MarkdownRender markdown={body}/>
 
                   <div className={cx('tags')}>
-                        {tags}
+                        {tags && tags.map(
+                              tag => <Link key={tag} to='/posts'>#{tag}</Link>)}
                   </div>
-                  <div className={cx('date')}>
-                        {moment(publishedDate).format('ll')}
-                  </div>
+            
             </Content>
             </Section>
             </div>

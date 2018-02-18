@@ -4,6 +4,7 @@ import * as postActions from 'store/modules/post';
 import * as baseActions from 'store/modules/base';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
 import shouldCancel from 'lib/shouldCancel';
 
 class PostContainer extends Component {
@@ -24,10 +25,14 @@ class PostContainer extends Component {
       const { BaseActions } = this.props;
       BaseActions.showModal('remove');
     }
+    handleBack = () => {
+          const { history } = this.props;
+          history.goBack();
+    }
 
     render() {
       const { loading, post, id, logged } = this.props;
-      const { handleRemove } = this;
+      const { handleRemove, handleBack } = this;
 
       if(loading) return null; //로딩시에는 아무것도 보여주지 않음
       
@@ -43,6 +48,7 @@ class PostContainer extends Component {
                   body={body}
                   logged={logged}
                   onRemove={handleRemove}
+                  onBack={handleBack}
                   publishedDate={publishedDate}
                   />
             </div>
@@ -60,4 +66,4 @@ export default connect(
             PostActions: bindActionCreators(postActions, dispatch),
             BaseActions: bindActionCreators(baseActions, dispatch)
       })
-)(PostContainer);
+)(withRouter(PostContainer));

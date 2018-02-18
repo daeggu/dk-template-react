@@ -3,6 +3,7 @@ import LoginModal from 'components/modal/LoginModal';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as baseActions from 'store/modules/base';
+import onClickOutside from 'react-onclickoutside';
 
 class LoginModalContainer extends Component {
       handleLogin = async () => {
@@ -15,10 +16,6 @@ class LoginModalContainer extends Component {
                   console.error(e);
             }
       }
-      handleCancel = () => {
-            const { BaseActions } = this.props;
-            BaseActions.hideModal('login');
-      }
       handleChange = (e) => {
             const { value } = e.target;
             const { BaseActions } = this.props;
@@ -29,19 +26,22 @@ class LoginModalContainer extends Component {
                   this.handleLogin();
             }
       }
+      handleClickOutside  = evt => {
+            const { BaseActions } = this.props;
+            BaseActions.hideModal('login');
+       }
    
       render() {
             const { 
-                  handleLogin, handleCancel,
-                  handleChange, handleKeyPress
+                  handleLogin, handleChange, handleKeyPress
             } = this;
-            const { visible, error, password } = this.props;
+            const { error, password } = this.props;
 
             return (
                   <LoginModal
-                        onLogin={handleLogin} onCancel={handleCancel}
-                        onChange={handleChange} onKeyPress={handleKeyPress}
-                        visible={visible} error={error} password={password}
+                        onLogin={handleLogin} onChange={handleChange}
+                        onKeyPress={handleKeyPress}
+                        error={error} password={password}
                   />
             );
       }
@@ -49,11 +49,10 @@ class LoginModalContainer extends Component {
 
 export default connect(
       (state) => ({
-            visible: state.base.getIn(['modal', 'login']),
             password : state.base.getIn(['loginModal', 'password']),
             error : state.base.getIn(['loginModal', 'error'])
       }),
       (dispatch) => ({
              BaseActions: bindActionCreators(baseActions, dispatch)
       })
-)(LoginModalContainer);
+)(onClickOutside(LoginModalContainer));

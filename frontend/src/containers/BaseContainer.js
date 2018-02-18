@@ -17,7 +17,7 @@ import PageTemplate from 'components/common/PageTemplate';
 import SidebarContainer from 'containers/SidebarContainer';
 import LoginModalContainer from 'containers/LoginModalContainer';
 import HeaderContainer from 'containers/HeaderContainer';
-
+import ModalWrapper from 'components/modal/ModalWrapper';
 
 class BaseContainer extends Component {
 
@@ -42,11 +42,14 @@ class BaseContainer extends Component {
   }
   render() {
     const { handleOpen, handleClose} = this;
-    const { isOpen } = this.props;
+    const { isOpen, visible } = this.props;
 
     return (
       <div>
-        <LoginModalContainer/>
+        <ModalWrapper visible={visible}>
+          <LoginModalContainer/>
+        </ModalWrapper>
+
         <PageTemplate 
             sidebar={<SidebarContainer isOpen={isOpen} onClick={handleClose}/>}
             header={<HeaderContainer/>}
@@ -72,6 +75,7 @@ class BaseContainer extends Component {
 export default connect(
   (state)=> ({
     isOpen: state.base.get('isOpen'),
+    visible: state.base.getIn(['modal', 'login'])
   }), 
   (dispatch) => ({
     BaseActions : bindActionCreators(baseActions, dispatch)

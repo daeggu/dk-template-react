@@ -15,7 +15,6 @@ function buildHtml({html, helmet, preloadedState}){
         <link rel="shortcut icon" href="/dk.ico">
          ${title.toString()}
          ${meta.toString()}
-
         <link href="/${manifest['app.css']}" rel="stylesheet">
     </head>
     <body>

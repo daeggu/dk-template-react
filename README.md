@@ -27,6 +27,7 @@ If you want to try all of the features, download the source and run it as koa se
  - moment
  - transit-immutable-js, transit-js
  - react-helmet
+ - remove-markdown
 
 **Design**
  - sass-loader, node-sass

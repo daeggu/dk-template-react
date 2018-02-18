@@ -1,5 +1,28 @@
+@import 'utils';
+
 .buttons{
       >*{
             margin-left: 0.5rem;
       }
+}
+
+.tags {
+      font-size: 0.85rem;
+      color: $oc-blue-6;
+      
+      a {
+        &:hover {
+          color: $oc-blue-5;
+          text-decoration: underline;
+        }
+      }
+      a + a {
+        margin-left: 0.5rem;
+      }
+}
+
+.date {
+      font-size: 0.85rem;
+      color: $oc-gray-5;
+      margin-left: 1rem;
 }

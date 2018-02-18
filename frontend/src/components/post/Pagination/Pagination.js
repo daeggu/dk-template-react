@@ -14,7 +14,7 @@ const Pagination = ({page, lastPage}) => {
     <div className={cx('pagination')}>
       <Button 
             round
-            color="cyan" 
+            color="dark" 
             fontSize="0.8rem"
             padding="0.8rem"
             xPadding="1rem"
@@ -26,7 +26,7 @@ const Pagination = ({page, lastPage}) => {
       </div>
       <Button 
             round
-            color="cyan" 
+            color="dark" 
             fontSize="0.8rem"
             padding="0.8rem"
             xPadding="1rem"
