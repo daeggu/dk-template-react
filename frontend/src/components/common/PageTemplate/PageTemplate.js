@@ -14,7 +14,6 @@ const PageTemplate = ({sidebar, header, children, onOpen}) => {
                         <div className={cx('button')} onClick={onOpen}>
                               <SidebarButton className={cx('icon')} />
                         </div>
-                        {/* <Header/> */}
                         {header}
                         <div className={cx('center')}>
                               {children}

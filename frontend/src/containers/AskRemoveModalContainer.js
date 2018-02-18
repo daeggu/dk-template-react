@@ -5,8 +5,14 @@ import * as baseActions from 'store/modules/base';
 import * as postActions from 'store/modules/post';
 import { withRouter } from 'react-router-dom';
 import AskRemoveModal from 'components/modal/AskRemoveModal';
+import onClickOutside from 'react-onclickoutside';
 
 class AskRemoveModalContainer extends Component {
+
+      handleClickOutside  = evt => {
+            const { BaseActions } = this.props;
+            BaseActions.hideModal('remove');
+       }
 
       handleCancel = () => {
             const { BaseActions } = this.props;
@@ -23,16 +29,12 @@ class AskRemoveModalContainer extends Component {
             }catch (e) {
                   console.error(e);
             }
-
       }
-
       render() {
-            const { visible } = this.props;
             const { handleCancel, handleConfirm } = this;
 
             return (
                   <AskRemoveModal
-                        visible={visible}
                         onCancel= {handleCancel}
                         onConfirm={handleConfirm}/>
             );
@@ -47,4 +49,4 @@ export default connect(
             BaseActions: bindActionCreators(baseActions, dispatch),
             PostActions: bindActionCreators(postActions, dispatch)
       })
-)(withRouter(AskRemoveModalContainer));
+)(withRouter(onClickOutside(AskRemoveModalContainer)));

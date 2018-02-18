@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PostContainer from 'containers/PostContainer';
 import AskRemoveModalContainer from 'containers/AskRemoveModalContainer';
+import ModalWrapper from 'components/modal/ModalWrapper';
 import * as postActions from 'store/modules/post';
-import { bindActionCreators } from 'redux';
 
-const PostPage = ({match}) => {
-      const { id } = match.params;
-      return (
-         <div>
-            <PostContainer id={id}/>
-            <AskRemoveModalContainer />
-         </div>
-      );
-};
+class PostPage extends Component {
+
+      render(){
+            const { match, visible } = this.props;
+            return(
+                  <div>
+                        <PostContainer id={match.params.id}/>
+                        <ModalWrapper visible={visible}>
+                              <AskRemoveModalContainer />
+                        </ModalWrapper>
+                  </div>
+            );
+      }
+}
 
 PostPage.preload = (dispatch, params) => {
       const { id } = params;
@@ -20,4 +27,9 @@ PostPage.preload = (dispatch, params) => {
       return PostActions.getPost(id);
 }
 
-export default PostPage;
+export default connect(
+      (state) => ({
+            visible: state.base.getIn(['modal', 'remove'])
+      }),
+      null
+)(PostPage);
