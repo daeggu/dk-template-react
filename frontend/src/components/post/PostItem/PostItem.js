@@ -15,7 +15,7 @@ const cx = classNames.bind(styles);
 
 const PostItem = ({
             title, body, tags, publishedDate,
-            logged, postId, onRemove, onBack}) => {
+            logged, postId, onRemove}) => {
       return (
             <div>
             <Helmet>
@@ -30,7 +30,7 @@ const PostItem = ({
                               <Button 
                                     color="dark"
                                     round
-                                    onClick={onBack}>뒤로</Button>
+                                    to="/posts">뒤로</Button>
 
                               <Button 
                                     color="dark"

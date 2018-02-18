@@ -1,8 +1,7 @@
 @import 'utils';
 
 .editor-pane {
-  flex: 1; // 자신에게 주어진 영역을 다 채우기
-  // 세로방향으로 내용 나열
+  flex: 1; 
   display: flex;
   flex-direction: column;
 
@@ -21,6 +20,7 @@
 
   .code-editor {
     flex: 1; // 남는 영역 다 차지하기
+    padding-left: 1rem;
     background: $oc-gray-9;
     display: flex;
     flex-direction: column; // .CodeMirror 가 세로영역을 전부 차지

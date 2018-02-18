@@ -1,8 +1,14 @@
 @import 'utils';
 
 .markdown-render {
+
+  strong{
+    font-weight: 900;
+    color: $oc-cyan-9;
+  }
+
   blockquote {
-    border-left: 4px solid $oc-blue-6;
+    border-left: 4px solid $oc-cyan-8;
     padding: 1rem;
     background: $oc-gray-1;
     margin-left: 0;

@@ -29,7 +29,8 @@ class EditorPane extends Component {
     this.codeMirror = CodeMirror(this.editor, {
       mode: 'markdown',
       theme: 'monokai',
-      lineWrapping: true,
+      lineNumbers: true, // 좌측에 라인넘버 띄우기
+      lineWrapping: true // 내용이 너무 길면 다음 줄에 작성
     });
     this.codeMirror.on('change', this.handleChangeMarkdown);
   }
