@@ -28,7 +28,8 @@ class PostListContainer extends Component {
       }
       
       componentDidUpdate(prevProps, prevState) {
-         if(prevProps.page !== this.props.page){
+            if(prevProps.page !== this.props.page 
+                  || prevProps.tag !== this.props.tag) {
             this.getPostList();
             document.documentElement.scrollTop = 200; 
          }
