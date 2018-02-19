@@ -26,16 +26,15 @@
   }
 
   h1, h2, h3, h4 {
-    font-weight: 500;
+    font-weight: 900;
   }
 
   // 텍스트 사이의 코드
   h1, h2, h3, h4, h5, p {
     code {
-   //   font-family: 'D2 Coding';
       background: $oc-gray-0;
       padding: 0.25rem;
-      color: $oc-blue-6;
+      color: $oc-gray-6;
       border: 1px solid $oc-gray-2;
       border-radius: 2px;
     }
@@ -43,7 +42,6 @@
 
   // 코드 블록
   code[class*="language-"], pre[class*="language-"] {
- //   font-family: 'D2 Coding';
   }
 
   a {
@@ -70,10 +68,5 @@
     text-align: left;
   }
 
-  // 이미지 최대사이즈 설정 및 중앙정렬
-  img {
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
-  }
+
 }

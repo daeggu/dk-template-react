@@ -4,27 +4,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      .button{
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30%;
-            height: 4rem;
-            color: white;
-            @include material-shadow(3);
-            background:$oc-cyan-9;
-            &:hover{
-                  background:$oc-cyan-8;
-            }
-            &:active{
-                 background:$oc-cyan-9;
-            }
-      }
 }
 .input-wrapper{
       margin-top: 1rem;
@@ -46,4 +25,19 @@ textarea{
       height: 17rem;
       font-size: 1rem;
       resize: none; 
+
+      outline: none;
+      border-radius: 2px;
+      border: 1px solid $oc-gray-4;
+      padding: 0.5rem;
+      font-size: 1rem;
+      transition: color .3s, border-color .3s;
+
+      &:focus {
+            border: 1px solid $oc-cyan-7;
+            color: $oc-cyan-7;
+            &::placeholder {
+                  color: $oc-cyan-6;
+            }
+      }
 }

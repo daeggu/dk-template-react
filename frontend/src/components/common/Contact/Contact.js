@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Contact.scss';
 import classNames from 'classnames/bind';
+import Button from 'components/base/Button';
+import Input from 'components/base/Input';
 
 const cx = classNames.bind(styles);
 
@@ -8,16 +10,21 @@ const Contact = () => {
       return (
             <div>
                   <div className={cx('input-wrapper')}>
-                        <input placeholder='Name' />
-                        <input placeholder='Email' />
+                        <Input flex placeholder='Name' />
+                        <Input flex placeholder='Email' />
                   </div>
                   <textarea>
                   </textarea>
                   <div className={cx('button-wrapper')}>
-                        <div className={cx('button')}>
+                        <Button
+                              round
+                              flex
+                              fontSize="1.2rem"
+                              color="cyan">
                               Send
-                        </div>
+                        </Button>
                   </div>
+                
             </div>
       );
 };
