@@ -13,9 +13,8 @@ import removeMd from 'remove-markdown';
 
 const cx = classNames.bind(styles);
 
-const PostItem = ({
-            title, body, tags, publishedDate,
-            logged, postId, onRemove}) => {
+const PostItem = ({post, logged, onRemove}) => {
+      const {_id, title, publishedDate, body, tags } = post;
       const tagList = tags.map(
             tag => <Link key={tag} to={`/tag/${tag}`}>#{tag} </Link>
        );
@@ -33,7 +32,7 @@ const PostItem = ({
                               <Button 
                                     color="dark"
                                     round
-                                    to={`/editor?id=${postId}`}>수정</Button>
+                                    to={`/editor?id=${_id}`}>수정</Button>
                               <Button 
                                     color="dark"
                                     round

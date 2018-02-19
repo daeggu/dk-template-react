@@ -23,7 +23,7 @@ class AskRemoveModalContainer extends Component {
             try{
                   await PostActions.removePost(id);
                   BaseActions.hideModal('remove');
-                  history.push('/posts');
+                  history.push('/page/1');
                   window.location.reload(); 
             }catch (e) {
                   console.error(e);

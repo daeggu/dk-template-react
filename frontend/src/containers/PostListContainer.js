@@ -54,13 +54,10 @@ class PostListContainer extends Component {
                   <div>
                           {posts[index] &&
                            <PostItem 
-                              postId={posts[index]._id} 
-                              title={posts[index].title}
-                              tags={posts[index].tags}
-                              body={posts[index].body}
+                              post={posts[index]}
                               logged={logged}
                               onRemove={handleRemove}
-                              publishedDate={posts[index].publishedDate}/>}
+                              />}
                          
                         <PostList 
                               postIndex={index}

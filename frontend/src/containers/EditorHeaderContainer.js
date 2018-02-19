@@ -32,7 +32,7 @@ class EditorHeaderContainer extends Component {
             try{  
                   const { id } = queryString.parse(location.search);
                   if(id){
-                        await EditorActions.editPost({id, ... post});
+                        await EditorActions.editPost({id, ...post});
                          history.push('/page/1');
                         return;
                   }
