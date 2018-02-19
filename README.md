@@ -3,7 +3,7 @@
 
 **DK(β)** shows perfect **DK(β) Style** on any size screen through **reactive web** design.
 
-![markdown](https://user-images.githubusercontent.com/14367158/36365855-b7510186-158e-11e8-9951-f92c263a989e.png)
+![markdown](https://user-images.githubusercontent.com/14367158/36366253-97f385dc-1590-11e8-8457-6f643254f820.png)
 
 ## Demo
 If you want to try all of the features, download the source and run it as koa server.(Backend)
