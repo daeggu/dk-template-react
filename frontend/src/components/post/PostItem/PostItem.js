@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 const PostItem = ({post, logged, onRemove}) => {
       const {_id, title, publishedDate, body, tags } = post;
       const tagList = tags.map(
-            tag => <Link key={tag} to={`/tag/${tag}`}>#{tag} </Link>
+            (tag, i) => <Link key={i} to={`/tag/${tag}`}>#{tag} </Link>
        );
       return (
             <div>

@@ -15,7 +15,7 @@ const PostList = ({posts, error, onClickIndex, postIndex}) => {
             const {_id, title, publishedDate, body, tags } = post;
             const isSelected = postIndex === i;
             const tagList = tags.map(
-                  tag => <Link key={tag} to={`/tag/${tag}`}>#{tag} </Link>
+                  (tag, i)=> <Link key={i} to={`/tag/${tag}`}>#{tag} </Link>
                 );
             const param = {id:_id , index: i};
             return (
