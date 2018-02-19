@@ -30,7 +30,7 @@ const Pagination = ({page, lastPage}) => {
             fontSize="0.8rem"
             padding="0.8rem"
             xPadding="1rem"
-            disabled={page===lastPage} to={createPagePath(page+1)}>
+            disabled={page===lastPage || lastPage === 0} to={createPagePath(page+1)}>
             다음 페이지
       </Button>
     </div>
