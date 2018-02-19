@@ -12,7 +12,7 @@ export const getPost = createAction(GET_POST, api.getPost);
 export const removePost = createAction(REMOVE_POST, api.removePost);
 
 const initialState = Map({
-      post : Map({})
+      post : Map({}),
 });
 
 export default handleActions({
@@ -22,6 +22,5 @@ export default handleActions({
                   const { data : post } = action.payload;
                   return state.set('post', fromJS(post));
             }
-      })
-
+      }),
 }, initialState)

@@ -24,7 +24,6 @@ const PostItem = ({
             </Helmet>
             <Section>
             <Title 
-                  post
                   button={
                         logged && 
                         <div className={cx('buttons')}>

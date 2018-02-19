@@ -1,34 +1,46 @@
 @import 'utils';
 
-.tags {
-      font-size: 0.85rem;
-      color: $oc-blue-6;
-      a {
-        &:hover {
-          color: $oc-blue-7;
-          text-decoration: none;
-        }
+.post-item{
+  .header{
+    display: flex;
+    align-items: center;
+      .title{
+          font-weight: 900;
+          color: $oc-gray-9;
+          font-size: 1rem;
+          &.selected{
+            color: $oc-cyan-9;
+            font-weight: 900;
+            text-decoration: underline
+          }
+          &:hover{
+            color: $oc-cyan-9;
+            font-weight: 900;
+            text-decoration: underline;
+            cursor: pointer;
+            user-select: none;
+          }
+       }
+      .date {
+        font-size: 0.8rem;
+        color: $oc-gray-6;
+        margin-left: 1rem;
       }
-      a + a {
-        margin-left: 0.5rem;
-      }
+    }
+  .content{
+    font-size: 0.7rem;
+    margin-top: 1rem;
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .tags {
+    font-size: 0.7rem;
+    color: $oc-blue-6;
+  }
 }
-
-.date {
-      font-size: 0.85rem;
-      color: $oc-gray-5;
-      margin-left: 1rem;
-}
-
 .post-item + .post-item {
       border-top: 1px solid $oc-gray-3;
       padding-top: 1rem;
-}
-
-a {
-  user-select: none;
-  &:hover {
-    color: $oc-cyan-7;
-    text-decoration: none;
-  }
 }

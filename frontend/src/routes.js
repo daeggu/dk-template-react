@@ -1,16 +1,11 @@
 import { 
-      ReduxPage, PostPage,
+      ReduxPage,
       PostListPage, EditorPage } from 'pages';
 
 export default [
       {
             path: '/redux',
             component : ReduxPage
-      },
-
-      {
-            path: '/posts/:id',
-            component: PostPage
       },
       {
             path: '/posts',
@@ -30,5 +25,4 @@ export default [
             path: '/editor',
             component: EditorPage
       }
-
 ]

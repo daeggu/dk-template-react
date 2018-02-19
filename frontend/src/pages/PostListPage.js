@@ -1,30 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PostListContainer from 'containers/PostListContainer';
 import * as listActions from 'store/modules/list';
+import { connect } from 'react-redux';
+import AskRemoveModalContainer from 'containers/AskRemoveModalContainer';
+import ModalWrapper from 'components/modal/ModalWrapper';
 import { bindActionCreators } from 'redux';
-import { Helmet } from 'react-helmet';
 
-const PostListPage = ({match}) => {
+class PostListPage extends Component {
 
-      const { page = 1 } = match.params;
-      return (
-            <div>
-                <Helmet>
-                    <title>Posts</title>
-                </Helmet>
-                <PostListContainer
-                  page={parseInt(page, 10)}
-                />
-            </div>
-      );
-};
+      render() {
+            const { visible, match } = this.props;
+            const { page = 1 } = match.params;
+            return (
+                  <div>
+                        <ModalWrapper visible={visible}>
+                              <AskRemoveModalContainer />
+                        </ModalWrapper>
+                        <PostListContainer
+                              page={parseInt(page, 10)}
+                        />
+                  </div>
+            );
+      }
+
+}
 
 PostListPage.preload = (dispatch, params) => {
-      const { page = 1} = params;
+      const { page = 1 } = params;
       const ListActions = bindActionCreators(listActions, dispatch);
       return ListActions.getPostList({
             page
       });
 }
 
-export default PostListPage;
+export default connect(
+      (state) => ({
+            visible: state.base.getIn(['modal', 'remove'])
+      }),
+      null
+)(PostListPage);

@@ -7,7 +7,6 @@ import {
   ContactPage,
   ProfilePage,
   PostListPage,
-  PostPage,
   NotFoundPage
 } from 'pages';
 import { connect } from 'react-redux';
@@ -59,7 +58,6 @@ class BaseContainer extends Component {
                 <Route path="/about" component={AboutPage} />
                 <Route path="/profile" component={ProfilePage} />
                 <Route path="/posts/page/:page" component={PostListPage}/>
-                <Route path="/posts/:id" component={PostPage}/>
                 <Route path="/posts" component={PostListPage}/>
                 <Route path="/contact" component={ContactPage} />
                 <Route path="/redux" component={ReduxPage} />

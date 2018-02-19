@@ -2,38 +2,40 @@ import React from 'react';
 import styles from './PostList.scss';
 import classNames from 'classnames/bind';
 import Section from 'components/post/Section';
-import { Link } from 'react-router-dom';
-import Title from 'components/post/Title';
-import Content from 'components/post/Content';
 import moment from 'moment';
 import removeMd from 'remove-markdown';
 import InputError from 'components/base/InputError';
 
 const cx = classNames.bind(styles);
 
-const PostList = ({posts, error}) => {
+const PostList = ({posts, error, onClickIndex, postIndex}) => {
 
-      const render = posts.map((post)=> {
+      const render = posts.map((post, i)=> {
             const {_id, title, publishedDate, body, tags } = post;
-            
+            const isSelected = postIndex === i;
+            const tagList =   (tags && 
+                  tags.map(tag => <i key={tag} >#{tag} </i>));
+            const param = {id:_id , index: i};
             return (
                   <div key={_id} className={cx('post-item')}>
-                        <Title>
-                              <Link to={`/posts/${_id}`}>
+                        <div className={cx('header')}>
+                              <div className={cx('title', {'selected' : isSelected})}
+                                    onClick={()=>onClickIndex(param)} >
                                     {title}
-                              </Link>
-                        </Title>
-                        <Content>
+                              </div>
                               <div className={cx('date')}>
-                                    {moment(publishedDate).format('ll')}
-                              </div>
+                                  <i>{moment(publishedDate).format('ll')}</i>
+                              </div>      
+                        </div>
+                      
+                        <div className={cx('content')}>
                               <p>{removeMd(body)}</p>
-                              <div className={cx('tags')}>
-                              {tags && tags.map(
-                               tag => <Link key={tag} to='/posts'>#{tag}</Link>)}
-                              </div>
-                              
-                        </Content>
+                        </div>
+                        {tagList &&
+                        <div className={cx('tags')}>
+                              {tagList}
+                        </div>}
+                            
                   </div>
             );
       });

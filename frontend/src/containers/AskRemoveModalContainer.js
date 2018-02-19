@@ -19,13 +19,12 @@ class AskRemoveModalContainer extends Component {
             BaseActions.hideModal('remove');
       }
       handleConfirm = async () => {
-            const { BaseActions, PostActions, history, match } = this.props;
-            const { id } = match.params;
-            
+            const { BaseActions, PostActions, history, id } = this.props;
             try{
                   await PostActions.removePost(id);
-                  history.push('/posts');
                   BaseActions.hideModal('remove');
+                  history.push('/posts');
+                  window.location.reload(); 
             }catch (e) {
                   console.error(e);
             }
@@ -43,7 +42,8 @@ class AskRemoveModalContainer extends Component {
 
 export default connect(
       (state) => ({
-            visible: state.base.getIn(['modal', 'remove'])
+            visible: state.base.getIn(['modal', 'remove']),
+            id : state.list.getIn(['selected', 'id'])
       }),
       (dispatch) => ({
             BaseActions: bindActionCreators(baseActions, dispatch),
