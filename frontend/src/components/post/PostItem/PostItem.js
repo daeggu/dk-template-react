@@ -49,7 +49,7 @@ const PostItem = ({
                         {tags && tags.map(
                               tag => <Link key={tag} to='/posts'>#{tag}</Link>)}
                   </div>
-            
+
             </Content>
             </Section>
             </div>
