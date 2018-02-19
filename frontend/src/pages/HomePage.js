@@ -6,11 +6,16 @@ import Content from 'components/post/Content';
 import responsive from 'static/images/responsive.png';
 import split from 'static/images/split.png';
 import serverSide from 'static/images/server-side.png';
+import markdown from 'static/images/markdown.png';
 import { Helmet } from 'react-helmet';
 
 const imageArr = [{
       url : responsive,
       alt : 'responsive web image'
+},
+{
+      url : markdown,
+      alt : 'markdown editor'
 }];
 
 const splitArr = [{
