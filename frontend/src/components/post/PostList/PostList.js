@@ -7,10 +7,11 @@ import Title from 'components/post/Title';
 import Content from 'components/post/Content';
 import moment from 'moment';
 import removeMd from 'remove-markdown';
+import InputError from 'components/base/InputError';
 
 const cx = classNames.bind(styles);
 
-const PostList = ({posts}) => {
+const PostList = ({posts, error}) => {
 
       const render = posts.map((post)=> {
             const {_id, title, publishedDate, body, tags } = post;
@@ -39,6 +40,7 @@ const PostList = ({posts}) => {
 
       return (
             <Section >
+                  <InputError error={error}/>
                   {render}
             </Section>
       );

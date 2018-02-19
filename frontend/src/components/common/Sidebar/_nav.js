@@ -16,6 +16,7 @@ export default {
                   url : '/profile',
                   icon : require('react-icons/lib/fa/user')
             },
+         
             {
                   name : 'Posts',
                   url : '/posts',
@@ -29,7 +30,8 @@ export default {
             {
                   name : 'Redux',
                   url : '/redux',
-                  icon: require('react-icons/lib/fa/book')
+                  icon: require('react-icons/lib/fa/th-list')
             },
+           
       ]
 }

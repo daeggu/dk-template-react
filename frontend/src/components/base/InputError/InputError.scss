@@ -1,0 +1,18 @@
+@import 'utils';
+
+.input-error{
+      background: $oc-red-1;
+      border: 1px solid $oc-red-2;
+      color : $oc-red-7;
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      &.no-margin-top{
+            margin-top: 1;
+      }
+      &.table{
+            display: table;
+      }
+}

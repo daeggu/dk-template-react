@@ -8,12 +8,14 @@ import shouldCancel from 'lib/shouldCancel';
 
 class PostListContainer extends Component {
 
-      getPostList = () => {
+      getPostList = async () => {
             if(shouldCancel()) return ;
             const { page, ListActions } = this.props;
-            ListActions.getPostList({
-                  page
-            });
+            try{
+                  await ListActions.getPostList({page});
+            }catch(e){
+                  console.error(e);
+            }
       }
 
       componentDidMount(){
@@ -28,11 +30,11 @@ class PostListContainer extends Component {
       }
 
       render() {
-            const { loading, page, posts, lastPage } = this.props;
+            const { loading, page, posts, lastPage, error } = this.props;
             if(loading) return null;
             return (
                   <div>
-                        <PostList posts={posts} />
+                        <PostList posts={posts} error={error}/>
                         <Pagination page={page} lastPage={lastPage} />  
                   </div>
             );
@@ -43,7 +45,8 @@ export default connect(
       (state) => ({
             lastPage : state.list.get('lastPage'),
             posts : state.list.get('posts').toJS(),
-            loading : state.pender.pending['list/GET_POST_LIST']
+            loading : state.pender.pending['list/GET_POST_LIST'],
+            error : state.list.get('error')
       }),
       (dispatch) => ({
             ListActions : bindActionCreators(listActions, dispatch)

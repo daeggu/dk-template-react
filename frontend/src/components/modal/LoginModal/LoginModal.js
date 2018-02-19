@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 
 import Button from 'components/base/Button';
 import Input from 'components/base/Input';
+import InputError from 'components/base/InputError';
 import SocialLoginButton from 'components/base/SocialLoginButton';
 
 const cx = classNames.bind(styles);
@@ -29,7 +30,9 @@ const LoginModal = ({
                   className={cx('login')}
                   onClick={onLogin}
                   >로그인</Button>
-            { error && <div className={cx('error')}>로그인 실패</div> }
+            { error && 
+                  <InputError error={error}/>
+            }
             <div className={cx('separator')}>
                   <div className={cx('or')}>OR</div>
             </div>

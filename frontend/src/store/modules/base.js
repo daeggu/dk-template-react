@@ -10,6 +10,7 @@ const HIDE_MODAL = 'base/HIDE_MODAL';
 
 const LOGIN = 'base/LOGIN';
 const LOGOUT = 'base/LOGOUT';
+const SET_LOGIN_ERROR = 'base/SET_LOGIN_ERROR';
 const CHECK_LOGIN ='base/CHECK_LOGIN';
 const CHANGE_PASSWORD_INPUT = 'base/CHANGE_PASSWORD_INPUT';
 const INITIALIZE_LOGIN_MODAL = 'base/INITIALIZE_LOGIN_MODAL';
@@ -21,6 +22,7 @@ const TEMP_LOGIN = 'base/TEMP_LOGIN';
 export const setToggle = createAction(SET_TOGGLE); // {isOpen: boolean}
 export const showModal = createAction(SHOW_MODAL); // modalName
 export const hideModal = createAction(HIDE_MODAL); // modalName
+export const setLoginError = createAction(SET_LOGIN_ERROR); // {error : null}
 
 export const login = createAction(LOGIN, api.login);
 export const logout = createAction(LOGOUT, api.logout);
@@ -39,7 +41,7 @@ const initialState = Map({
       //로그인 모달 상태
       loginModal: Map({
             password: '',
-            error: false
+            error: null
       }),
       logged: false //현재 로그인 상태
 });
@@ -57,13 +59,22 @@ export default handleActions({
             const { payload: modalName } = action;
             return state.setIn(['modal', modalName], false);  
       },
+      [SET_LOGIN_ERROR]: (state, action) => {
+            const { payload: error } = action;
+            console.log(error);
+            return state.setIn(['loginModal', 'error'], error)
+      },
       ...pender({
             type:LOGIN,
             onSuccess: (state, action) => {
-                  return state.set('logged', true);
+                  return state.set('logged', true)
+                              .setIn(['loginModal', 'error'], null)
+                              .setIn(['loginModal', 'password'], '');
+
             },
             onError : (state, action) => {
-                  return state.setIn(['loginModal', 'error'], true)
+                  const { message } = action.payload;
+                  return state.setIn(['loginModal', 'error'], message)
                               .setIn(['loginModal', 'password'], '');
             }
       }),

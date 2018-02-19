@@ -8,7 +8,8 @@ const GET_USERS = 'users/GET_USERS';
 export const getUsers = createAction(GET_USERS, api.getUsers);
 
 const initialState = Map({
-      data : List()
+      data : List(),
+      error : null
 });
 
 export default handleActions ({
@@ -17,6 +18,8 @@ export default handleActions ({
             onSuccess: (state, action)=> {
                   const { data } = action.payload
                 return state.set('data', fromJS(data))
-            }
+            },
+            
       })
+
 }, initialState);

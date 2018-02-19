@@ -12,7 +12,8 @@ export const getPostList = createAction(GET_POST_LIST,
 
 const initialState = Map({
       posts: List(),
-      lastPage: null
+      lastPage: 1,
+      error: null
 });
 
 // reducer
@@ -24,7 +25,12 @@ export default handleActions({
                   const lastPage = action.payload.headers['last-page'];
                   //char to number
                   return state.set('posts', fromJS(posts))
-                              .set('lastPage', (lastPage*1));
+                              .set('lastPage', (lastPage*1))
+                              .set('error', null);
+            },
+            onError : (state, action) => {
+                  const { message } = action.payload;
+                  return state.set('error', message);
             }
       })
 }, initialState)
