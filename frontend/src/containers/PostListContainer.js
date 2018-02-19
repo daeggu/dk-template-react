@@ -4,11 +4,9 @@ import PostItem from 'components/post/PostItem';
 import Pagination from 'components/post/Pagination';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { withRouter } from 'react-router-dom';
 import * as baseActions from 'store/modules/base';
 import * as listActions from 'store/modules/list';
 import shouldCancel from 'lib/shouldCancel';  
-import NotFound from 'components/common/NotFound';
 
 class PostListContainer extends Component {
 
@@ -46,23 +44,15 @@ class PostListContainer extends Component {
             const { BaseActions } = this.props;
             BaseActions.showModal('remove');
       }
-      handleGoBack = () => {
-            const { history } = this.props;
-            history.goBack();
-      }
-
       render() {
          
             const { loading, page, logged,
                   posts, lastPage, error, index, tag } = this.props;
-            const { handleSelectedPost, handleRemove, handleGoBack } = this;
-            const isNotFound = page > lastPage;
+            const { handleSelectedPost, handleRemove } = this;
             if(loading) return null;
 
             return (
                   <div>
-                        {isNotFound && 
-                              <NotFound onGoBack={handleGoBack}/>}
                         { posts[index] &&
                            <PostItem 
                               post={posts[index]}
@@ -97,4 +87,4 @@ export default connect(
             ListActions : bindActionCreators(listActions, dispatch),
             BaseActions: bindActionCreators(baseActions, dispatch)
       })
-)(withRouter(PostListContainer));
+)(PostListContainer);
