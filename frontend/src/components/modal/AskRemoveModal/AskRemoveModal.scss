@@ -1,13 +1,21 @@
 @import 'utils';
 
 .ask-modal{
-
-
   
   @include material-shadow(3);
   .question {
     background: white;
     padding: 2rem;
+    width: 400px;
+    @include media(">wide"){
+      width: 400px;
+    }
+    @include media("<large"){
+          width: 350px;
+    }
+    @include media("<medium"){
+          width: 300px;
+    }
     .title {
       color: $oc-cyan-9;
       font-weight: 900;

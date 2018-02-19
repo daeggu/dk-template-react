@@ -30,13 +30,14 @@ class PostListContainer extends Component {
       componentDidUpdate(prevProps, prevState) {
          if(prevProps.page !== this.props.page){
             this.getPostList();
-            document.documentElement.scrollTop = 0; 
+            document.documentElement.scrollTop = 200; 
          }
       }
 
       handleSelectedPost = ({index, id}) => {
             const { ListActions } = this.props;
             ListActions.setSelectedPost({index, id});
+            document.documentElement.scrollTop = 200; 
       }
       handleRemove = () => {
             const { BaseActions } = this.props;

@@ -1,6 +1,13 @@
 @import 'utils';
 
 .markdown-render {
+  
+  img{
+    width: 100%;
+    height: auto;
+    @include material-shadow(2,1);
+    border-radius: 10px;
+  }
 
   strong{
     font-weight: 900;
@@ -25,7 +32,7 @@
   // 텍스트 사이의 코드
   h1, h2, h3, h4, h5, p {
     code {
-      font-family: 'D2 Coding';
+   //   font-family: 'D2 Coding';
       background: $oc-gray-0;
       padding: 0.25rem;
       color: $oc-blue-6;
@@ -36,7 +43,7 @@
 
   // 코드 블록
   code[class*="language-"], pre[class*="language-"] {
-    font-family: 'D2 Coding';
+ //   font-family: 'D2 Coding';
   }
 
   a {

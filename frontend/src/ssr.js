@@ -30,11 +30,13 @@ const render = async (ctx) => {
         }
     );
     
+    let result = null;
     try{
-        await Promise.all(promises);
+        result = await Promise.all(promises);
     }catch(e){
     }
 
+    console.log("결과", result);
     //NotFound (context={context})
     const context = {};
 
