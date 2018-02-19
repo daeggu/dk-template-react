@@ -15,8 +15,10 @@ const render = async (ctx) => {
     const store = configure();
     const promises = [];
     axios.defaults.baseURL = origin;
-    
+ 
     let { url } = ctx;
+    //한글 디코딩
+    url = decodeURI(url);
     routes.forEach(
         route => {
             const match = matchPath(url, route);
@@ -29,14 +31,12 @@ const render = async (ctx) => {
             promises.push(promise);
         }
     );
-    
-    let result = null;
+
     try{
-        result = await Promise.all(promises);
+        await Promise.all(promises);
     }catch(e){
     }
 
-    console.log("결과", result);
     //NotFound (context={context})
     const context = {};
 
