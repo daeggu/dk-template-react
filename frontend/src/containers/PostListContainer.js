@@ -12,10 +12,10 @@ class PostListContainer extends Component {
 
       getPostList = async () => {
             if(shouldCancel()) return ;
-            const { page, ListActions } = this.props;
+            const { page, tag, ListActions } = this.props;
             let res = null;
             try{
-                  res = await ListActions.getPostList({page});
+                  res = await ListActions.getPostList({page, tag});
                   if(res == null) return;
                   ListActions.setSelectedPost({id: res.data[0]._id, index : 0})
             }catch(e){
@@ -46,7 +46,7 @@ class PostListContainer extends Component {
 
       render() {
             const { loading, page, logged,
-                  posts, lastPage, error, index } = this.props;
+                  posts, lastPage, error, index, tag } = this.props;
             const { handleSelectedPost, handleRemove } = this;
             if(loading) return null;
 
@@ -66,8 +66,9 @@ class PostListContainer extends Component {
                               postIndex={index}
                               posts={posts}
                               error={error}
-                              onClickIndex={handleSelectedPost}/>
-                        <Pagination page={page} lastPage={lastPage} />  
+                              onClickIndex={handleSelectedPost}
+                              />
+                        <Pagination page={page} lastPage={lastPage} tag={tag} />  
                   </div>
             );
       }

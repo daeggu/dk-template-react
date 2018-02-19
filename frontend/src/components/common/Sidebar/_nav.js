@@ -19,7 +19,7 @@ export default {
          
             {
                   name : 'Posts',
-                  url : '/posts',
+                  url : '/page/1',
                   icon : require('react-icons/lib/fa/book')
             },
             {

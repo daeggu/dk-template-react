@@ -8,12 +8,11 @@ export default [
             component : ReduxPage
       },
       {
-            path: '/posts/page/:page',
-            component: PostListPage,
+            path: '/page/:page',
+            component: PostListPage
       },
       {
-            path: '/posts',
-            exact: true,
+            path: '/tag/:tag/:page?',
             component: PostListPage
       },
       {

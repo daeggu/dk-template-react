@@ -16,6 +16,9 @@ const cx = classNames.bind(styles);
 const PostItem = ({
             title, body, tags, publishedDate,
             logged, postId, onRemove}) => {
+      const tagList = tags.map(
+            tag => <Link key={tag} to={`/tag/${tag}`}>#{tag} </Link>
+       );
       return (
             <div>
             <Helmet>
@@ -44,10 +47,10 @@ const PostItem = ({
                   </div>
                   <MarkdownRender markdown={body}/>
 
+                  {tagList &&
                   <div className={cx('tags')}>
-                        {tags && tags.map(
-                              tag => <Link key={tag} to='/posts'>#{tag}</Link>)}
-                  </div>
+                        {tagList}
+                  </div>}
 
             </Content>
             </Section>

@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import Section from 'components/post/Section';
 import moment from 'moment';
 import removeMd from 'remove-markdown';
+import { Link } from 'react-router-dom';
 import InputError from 'components/base/InputError';
 
 const cx = classNames.bind(styles);
@@ -13,8 +14,9 @@ const PostList = ({posts, error, onClickIndex, postIndex}) => {
       const render = posts.map((post, i)=> {
             const {_id, title, publishedDate, body, tags } = post;
             const isSelected = postIndex === i;
-            const tagList =   (tags && 
-                  tags.map(tag => <i key={tag} >#{tag} </i>));
+            const tagList = tags.map(
+                  tag => <Link key={tag} to={`/tag/${tag}`}>#{tag} </Link>
+                );
             const param = {id:_id , index: i};
             return (
                   <div key={_id} className={cx('post-item')}>

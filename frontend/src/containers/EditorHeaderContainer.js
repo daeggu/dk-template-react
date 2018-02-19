@@ -33,11 +33,11 @@ class EditorHeaderContainer extends Component {
                   const { id } = queryString.parse(location.search);
                   if(id){
                         await EditorActions.editPost({id, ... post});
-                        history.push(`/posts/${id}`);
+                         history.push('/page/1');
                         return;
                   }
                   await EditorActions.writePost(post);
-                  history.push(`/posts/${this.props.postId}`)
+                  history.push('/page/1');
             }catch(e){
                   console.error(e);
             }

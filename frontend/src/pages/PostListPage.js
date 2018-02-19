@@ -10,13 +10,14 @@ class PostListPage extends Component {
 
       render() {
             const { visible, match } = this.props;
-            const { page = 1 } = match.params;
+            const { page = 1, tag } = match.params;
             return (
                   <div>
                         <ModalWrapper visible={visible}>
                               <AskRemoveModalContainer />
                         </ModalWrapper>
                         <PostListContainer
+                              tag={tag}
                               page={parseInt(page, 10)}
                         />
                   </div>
@@ -26,10 +27,10 @@ class PostListPage extends Component {
 }
 
 PostListPage.preload = (dispatch, params) => {
-      const { page = 1 } = params;
+      const { page = 1, tag } = params;
       const ListActions = bindActionCreators(listActions, dispatch);
       return ListActions.getPostList({
-            page
+            page, tag
       });
 }
 
