@@ -39,8 +39,13 @@ If you want to try all of the features, download the source and run it as koa se
 **Backend**
  - koa, koa-static
  - koa-router
+ - koa-bodyparser
+ - koa-session
+ - Joi, moment
  - dotenv
  - nodemon
+ - mongoose
+ - jsonwebtoken
  
  ## Check (code split & server side rendering)
 

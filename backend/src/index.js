@@ -3,7 +3,7 @@ const {
       PORT : port = 4000, //default
       COOKIE_SIGN_KEY : signKey
 } = process.env;
-
+const { jwtMiddleware } = require('lib/token');
 const Koa = require('koa');
 const path = require('path');
 const serve = require('koa-static');
@@ -24,6 +24,9 @@ const ssr = require('./ssr');
 
 db.connect();
 app.use(bodyParser());
+//TODO 추후 적용===============
+app.use(jwtMiddleware);
+//============================
 app.use(session(sessionConfig, app));
 app.keys = [signKey];
 router.use('/api', api.routes());
@@ -36,4 +39,4 @@ app.use(ssr);
 
 app.listen(port, () => {
       console.log(`Server is listening to port ${port}`)
-})
+});
