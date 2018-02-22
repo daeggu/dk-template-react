@@ -15,7 +15,8 @@
     "koa-session": "^5.8.1",
     "koa-static": "^4.0.2",
     "moment": "^2.20.1",
-    "mongoose": "^5.0.5"
+    "mongoose": "^5.0.5",
+    "nodemon": "^1.15.1"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src node src",
