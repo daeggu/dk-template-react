@@ -5,9 +5,13 @@ const {
 } = process.env;
 const { jwtMiddleware } = require('lib/token');
 const Koa = require('koa');
+
+const koaStatic = require('koa-static');
 const path = require('path');
-const serve = require('koa-static');
-const staticPath = path.join(__dirname, '../../frontend/build');
+const fs = require('fs');
+const frontendBuild = path.join(__dirname, '../../frontend/build');
+const indexPagePath = path.join(frontendBuild, 'index.html');
+const indexPage = fs.readFileSync(indexPagePath);
 
 const app = new Koa();
 const db = require('db');
@@ -34,8 +38,11 @@ router.get('/', ssr);
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.use(serve(staticPath)); 
+app.use(koaStatic(frontendBuild));
 app.use(ssr); 
+app.use((ctx) => {
+  ctx.body = indexPage;
+});
 
 app.listen(port, () => {
       console.log(`Server is listening to port ${port}`)
