@@ -68,7 +68,7 @@ module.exports = {
             loader: require.resolve('file-loader'),
             exclude: [/\.js$/, /\.html$/, /\.json$/],
             options: {
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: '/static/media/[name].[hash:8].[ext]',
               // 경로만 만들고, 실제로 파일을 따로 저장하지는 않습니다.
               emitFile: false
             },
