@@ -28,8 +28,8 @@ const ssr = require('./ssr');
 
 db.connect();
 app.use(bodyParser());
-//TODO 추후 적용===============
-app.use(jwtMiddleware);
+//추후 적용===================
+//app.use(jwtMiddleware);
 //============================
 app.use(session(sessionConfig, app));
 app.keys = [signKey];

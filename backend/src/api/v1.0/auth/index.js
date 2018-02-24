@@ -7,11 +7,11 @@ auth.get('/check', authCtrl.check);
 auth.post('/logout', authCtrl.logout);
 
 //==================================
-auth.post('/register/local', authCtrl.localRegister);
-auth.post('/login/local', authCtrl.localLogin);
-auth.get('/exists/:key(email|username)/:value', authCtrl.exists);
-//TODO edit
-auth.post('/logout2', authCtrl.logout2);
-auth.get('/check2', authCtrl.check);
+// auth.post('/register/local', authCtrl.localRegister);
+// auth.post('/login/local', authCtrl.localLogin);
+// auth.get('/exists/:key(email|username)/:value', authCtrl.exists);
+// //TODO edit
+// auth.post('/logout2', authCtrl.logout2);
+// auth.get('/check2', authCtrl.check);
 
 module.exports = auth;

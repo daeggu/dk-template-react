@@ -12,12 +12,15 @@ class PostListContainer extends Component {
 
       getPostList = async () => {
             if(shouldCancel()) return ;
-            const { page, tag, ListActions } = this.props;
+            const { page, tag, ListActions, index, id } = this.props;
             let res = null;
             try{
                   res = await ListActions.getPostList({page, tag});
                   if(res.data.length === 0) return;
-                  ListActions.setSelectedPost({id: res.data[0]._id, index : 0})
+                  if(index === 0 && id === null)
+                        ListActions.setSelectedPost({id: res.data[0]._id, index : 0})
+                  else 
+                        ListActions.setSelectedPost({id, index})
             }catch(e){
                   console.error(e);
             }
@@ -81,6 +84,7 @@ export default connect(
             loading : state.pender.pending['list/GET_POST_LIST'],
             error : state.list.get('error'),
             index : state.list.getIn(['selected', 'index']),
+            id : state.list.getIn(['selected', 'id']),
             logged : state.base.get('logged')
       }),
       (dispatch) => ({
