@@ -11,6 +11,8 @@ function buildHtml({html, helmet, preloadedState}){
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
         <meta name="theme-color" content="#000000">
+        <!-- default setting -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <link rel="manifest" href="/manifest.json">
         <link rel="shortcut icon" href="/dk.ico">
          ${title.toString()}
@@ -25,6 +27,8 @@ function buildHtml({html, helmet, preloadedState}){
         </script>
         <script type="text/javascript" src="/${manifest['vendor.js']}"></script>
         <script type="text/javascript" src="/${manifest['app.js']}"></script>
+        <!-- react-onClickoutside polyfill-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/dom4/2.0.0/dom4.js">/* DOM4 */</script> 
     </body>
     </html>
     `;

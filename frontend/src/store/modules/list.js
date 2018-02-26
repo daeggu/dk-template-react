@@ -33,7 +33,9 @@ export default handleActions({
                   //char to number
                   return state.set('posts', fromJS(posts))
                               .set('lastPage', (lastPage*1))
-                              .set('error', null);
+                              .set('error', null)
+                              .setIn(['selected', 'index'], 0)
+                              .setIn(['selected', 'id'], posts[0]._id);
             },
             onError : (state, action) => {
                   const { message } = action.payload;

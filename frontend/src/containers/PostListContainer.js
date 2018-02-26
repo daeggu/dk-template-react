@@ -17,9 +17,7 @@ class PostListContainer extends Component {
             try{
                   res = await ListActions.getPostList({page, tag});
                   if(res.data.length === 0) return;
-                  if(index === 0 && id === null)
-                        ListActions.setSelectedPost({id: res.data[0]._id, index : 0})
-                  else 
+                  if(index !== 0)
                         ListActions.setSelectedPost({id, index})
             }catch(e){
                   console.error(e);
