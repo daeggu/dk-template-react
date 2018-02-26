@@ -10,7 +10,7 @@ const PageTemplate = ({sidebar, header, children, onOpen}) => {
       return (
             <div className={cx('app')}>
                   {sidebar}
-                  <main>
+                  <div className={cx('main')}>
                         <div className={cx('button')} onClick={onOpen}>
                               <SidebarButton className={cx('icon')} />
                         </div>
@@ -19,7 +19,7 @@ const PageTemplate = ({sidebar, header, children, onOpen}) => {
                               {children}
                         </div>
                         <Footer/>
-                  </main>
+                  </div>
             </div>
       );
 };
