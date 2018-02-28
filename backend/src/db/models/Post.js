@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const {
+      POST_LIST_SIZE : listSize
+} = process.env;
 
-const PAGE_SIZE = 5;
+const LIST_SIZE = parseInt(listSize);
 
 const Post = new Schema({
       title: String,
@@ -37,15 +40,15 @@ Post.statics.findPosts = function({tag, page}){
       return this
             .find(tag ? {tags: tag} : {})
             .sort({"createAt": -1})
-            .skip((page-1)*PAGE_SIZE)
-            .limit(PAGE_SIZE)
+            .skip((page-1)*LIST_SIZE)
+            .limit(LIST_SIZE)
             .lean()
             .exec();
 }
 
 Post.statics.getLastPage = async function(tag){
       let totalSize = await this.count(tag ? {tags: tag} : {}).exec() ;
-      return  Math.ceil(totalSize/PAGE_SIZE);
+      return  Math.ceil(totalSize/LIST_SIZE);
 }
 
 Post.statics.deletePost = function(id){

@@ -9,11 +9,13 @@ import InputError from 'components/base/InputError';
 
 const cx = classNames.bind(styles);
 
-const PostList = ({posts, error, onClickIndex, postIndex}) => {
+const PostList = ({posts, error, onClickIndex, postId, postIndex}) => {
 
       const render = posts.map((post, i)=> {
             const {_id, title, publishedDate, body, tags } = post;
-            const isSelected = postIndex === i;
+            
+            const isSelected = postId !== null && (postIndex === i);
+
             const tagList = tags.map(
                   (tag, i)=> <Link key={i} to={`/tag/${tag}`}>#{tag} </Link>
                 );

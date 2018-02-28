@@ -12,13 +12,9 @@ class PostListContainer extends Component {
 
       getPostList = async () => {
             if(shouldCancel()) return ;
-            const { page, tag, ListActions, index, id } = this.props;
-            let res = null;
+            const { page, tag, ListActions } = this.props;
             try{
-                  res = await ListActions.getPostList({page, tag});
-                  if(res.data.length === 0) return;
-                  if(index !== 0)
-                        ListActions.setSelectedPost({id, index})
+                  await ListActions.getPostList({page, tag});
             }catch(e){
                   console.error(e);
             }
@@ -29,9 +25,11 @@ class PostListContainer extends Component {
       }
       
       componentDidUpdate(prevProps, prevState) {
+            const { ListActions } = this.props;
             if(prevProps.page !== this.props.page 
                   || prevProps.tag !== this.props.tag) {
             this.getPostList();
+            ListActions.setSelectedPost({index: 0, id: null});
             document.documentElement.scrollTop = 200; 
          }
       }
@@ -48,19 +46,20 @@ class PostListContainer extends Component {
       render() {
          
             const { loading, page, logged,
-                  posts, lastPage, error, index, tag } = this.props;
+                  posts, lastPage, error, tag, index, id  } = this.props;
             const { handleSelectedPost, handleRemove } = this;
             if(loading) return null;
 
             return (
                   <div>
-                        { posts[index] &&
+                        { (id !== null && posts[index]) &&
                            <PostItem 
                               post={posts[index]}
                               logged={logged}
                               onRemove={handleRemove}/>}
                          
                         <PostList 
+                              postId={id}
                               postIndex={index}
                               posts={posts}
                               error={error}
@@ -81,8 +80,8 @@ export default connect(
             posts : state.list.get('posts').toJS(),
             loading : state.pender.pending['list/GET_POST_LIST'],
             error : state.list.get('error'),
-            index : state.list.getIn(['selected', 'index']),
             id : state.list.getIn(['selected', 'id']),
+            index : state.list.getIn(['selected', 'index']),
             logged : state.base.get('logged')
       }),
       (dispatch) => ({
