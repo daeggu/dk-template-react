@@ -15,6 +15,7 @@ class PostListContainer extends Component {
             const { page, tag, ListActions } = this.props;
             try{
                   await ListActions.getPostList({page, tag});
+                  await ListActions.setPage(page);
             }catch(e){
                   console.error(e);
             }
